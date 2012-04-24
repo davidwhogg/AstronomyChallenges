@@ -17,7 +17,7 @@ you make no changes to it whatsoever.
 This document is a work in progress; it isn't even in a "first draft"
 state.  This version is dated 2012-04-23.
 
-### Probabilistic catalogs
+## Probabilistic catalogs
 
 A catalog is, in some sense, a quantitative explanation of an image.
 In probabilistic inference, there ought to be a posterior PDF over the
@@ -48,7 +48,7 @@ to:
   noise-model inference, and PSF estimation, of course.  More about
   some of this below.
 
-### Weak lensing
+## Weak lensing
 
 In studies of weak lensing, the objective is to find the shear
 map---the tensor distortion field being applied to galaxies---as a
@@ -75,7 +75,7 @@ because:
   point-spread function are limited in their approaches and
   capabilities.  There is much room for improvement.
 
-### Astrophysics at low signal-to-noise
+## Astrophysics at low signal-to-noise
 
 Astronomers care about the sources at...
 
@@ -89,7 +89,7 @@ Astronomers care about the sources at...
 
 - outer SS objects and the like
 
-### Stochastic variability
+## Stochastic variability
 
 - Quasars and reverberation
 
@@ -97,7 +97,7 @@ Astronomers care about the sources at...
 
 - quasi-periodic variable stars
 
-### Spectroscopic modeling and classification
+## Spectroscopic modeling and classification
 
 - sparse methods
 
@@ -105,17 +105,17 @@ Astronomers care about the sources at...
 
 - combining theory-driven and data-driven models sensibly
 
-### Spatial models of galaxies
+## Spatial models of galaxies
 
 - stars, extinctions, HI, etc -> model of the Milky Way
 
 - same for other galaxies
 
-### Dynamical models of galaxies
+## Dynamical models of galaxies
 
 - dynamical modeling, esp marginalization over the DF
 
-### Instrument calibration
+## Instrument calibration
 
 - PSF estimation, especially for high dynamic-range imaging (eg, Fergus et al)
 
@@ -127,6 +127,6 @@ Astronomers care about the sources at...
 
 - spectroscopic extraction
 
-### Networks of autonomous telescopes
+## Networks of autonomous telescopes
 
-### Adaptive optics
+## Adaptive optics
