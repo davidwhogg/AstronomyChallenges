@@ -105,13 +105,15 @@ Astronomers care about the sources at...
 
 - combining theory-driven and data-driven models sensibly
 
-### Reconstruction of galaxies
-
-- dynamical modeling, esp marginalization over the DF
+### Spatial models of galaxies
 
 - stars, extinctions, HI, etc -> model of the Milky Way
 
 - same for other galaxies
+
+### Dynamical models of galaxies
+
+- dynamical modeling, esp marginalization over the DF
 
 ### Instrument calibration
 
