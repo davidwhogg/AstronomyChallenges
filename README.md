@@ -15,7 +15,23 @@ you make no changes to it whatsoever.
 ### Revision history:
 
 This document is a work in progress; it isn't even in a "first draft"
-state.  This version is dated 2012-04-23.
+state.  This version is dated 2012-06-06.  I generally put the thing
+I am most interested in first; that is, I tend to prepend.
+
+## Radio interferometry
+
+Interferometers measure correlations (amplitude and phase) between
+antennae, each of which sees a noisy sky (noisy because of finite
+antenna temperature.  The standard practice in radio astronomy is to
+run some form of *Clean*, which is an algorithm to reconstruct a plausible
+sky image from the correlations on a finite set of baselines.  There are
+many variants of Clean, but most (perhaps all) have many problems:
+
+* There is no probabilistic model of the data stream; there is no likelihood function.
+* Priors are either not specified or else extremely naive.
+* Parts of the sky are often set to zero by hand.
+* The algorithms do not generally return uncertainty estimates on the reconstructed scene.
+* There is no way to quantitatively compare different scene options.
 
 ## Probabilistic catalogs
 
