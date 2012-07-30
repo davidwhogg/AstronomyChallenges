@@ -7,6 +7,12 @@ in astronomy, astrophysics, and cosmology.
 
 David W. Hogg (NYU)
 
+### Acknowledgements:
+
+These ideas come from many quarters; at least I am indebted to
+- Dustin Lang (Princeton)
+- Hans-Walter Rix (MPIA)
+
 ### License:
 
 Copyright 2012 the author.  You may copy and distribute this provided
@@ -115,11 +121,20 @@ Astronomers care about the sources at...
 
 ## Spectroscopic modeling and classification
 
-- sparse methods
+- sparse methods; modeling collections of spectra without 
+  previously classifying them into groups of similar types 
+  (galaxy, star, quasar, etc).
 
 - simultaneous redshift estimation and spectral classification
 
-- combining theory-driven and data-driven models sensibly
+- combining theory-driven and data-driven models sensibly; that
+  is, there are pretty-good models and excellent observations;
+  how do we tweak the models using the observations or otherwise
+  combine data-driven and model-driven methods?
+
+- more specific: looking at stellar variations around emission
+  lines to determine chromospheric activity; correlation of that
+  against age indicators; data-driven age measure for stars?
 
 ## Spatial models of galaxies
 
