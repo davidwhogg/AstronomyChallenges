@@ -24,6 +24,14 @@ This document is a work in progress; it isn't even in a "first draft"
 state.  This version is dated 2012-06-06.  I generally put the thing
 I am most interested in first; that is, I tend to prepend.
 
+## Three-dimensional modeling of the Milky Way
+
+- Dust modeling in three dimensions
+
+- Mass modeling with realistic models
+
+- Phase-space models in 6-d that don't rely on integrability
+
 ## Radio interferometry
 
 Interferometers measure correlations (amplitude and phase) between
