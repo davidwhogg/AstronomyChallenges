@@ -130,3 +130,35 @@ Astronomers care about the sources at...
 ## Networks of autonomous telescopes
 
 ## Adaptive optics
+
+## Models of spectra
+
+- Empirical (data-driven) models of spectra (or images or anything)
+  that are *not* well described by linear subspaces.  Methods like
+  PCA, HMF, and other matrix factorization methods are fastest and
+  easiest and most used in astronomy when the data are thought of as
+  filling a K-dimensional linear subspace.  I mean by this that it is
+  assumed that *any* linear combination of data points would be a
+  realistic, sensible new data point.  In reality, often the data live
+  in a much smaller subspace that is *not* linear; that is, many
+  possible linear combinations would not be sensible objects.  One
+  very simple approach worth exploring would be to perform a matrix
+  factorization but then permit very informative priors on the
+  "coefficient space" to be learned, like a multi-component mixture of
+  Gaussians.  Another approach is to apply a very strong L1-norm or
+  other "sparseness" prior at the subspace learning stage to
+  discourage mixing of the eigenspectra; then the matrix factorization
+  should locate a set of archetypes rather than a subspace.
+
+- One application of a non-linear data-driven model is in fitting
+  stars, where it is understood that the fundamental physical model is
+  driven by temperature, surface gravity, and metallicity, each of
+  which affects the spectrum non-linearly.  A successful data-driven
+  model of stars would capture their variation without being able to
+  fit or generate obvious non-stars.  It would also find spectroscopic
+  binaries, something that hasn't been done in large surveys to date
+  (to my knowledge).
+
+- Another application is in fitting quasars, where there is no precise
+  physical model but it is known that linear combinations of quasars
+  are not themselves realistic quasars!
