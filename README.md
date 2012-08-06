@@ -12,6 +12,7 @@ David W. Hogg (NYU)
 These ideas come from many quarters; at least I am indebted to
 - Dustin Lang (Princeton)
 - Hans-Walter Rix (MPIA)
+- Sam Roweis (deceased)
 
 ### License:
 
