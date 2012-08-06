@@ -105,71 +105,6 @@ because:
   point-spread function are limited in their approaches and
   capabilities.  There is much room for improvement.
 
-## Astrophysics at low signal-to-noise
-
-Astronomers care about the sources at...
-
-- time domain issues (moving and variable)
-
-- source detection in online methods
-
-- confusion noise and crowding
-
-- Galactic center and the like
-
-- outer SS objects and the like
-
-## Stochastic variability
-
-- Quasars and reverberation
-
-- exoplanet transits at the variability limit
-
-- quasi-periodic variable stars
-
-## Spectroscopic modeling and classification
-
-- sparse methods; modeling collections of spectra without 
-  previously classifying them into groups of similar types 
-  (galaxy, star, quasar, etc).
-
-- simultaneous redshift estimation and spectral classification
-
-- combining theory-driven and data-driven models sensibly; that
-  is, there are pretty-good models and excellent observations;
-  how do we tweak the models using the observations or otherwise
-  combine data-driven and model-driven methods?
-
-- more specific: looking at stellar variations around emission
-  lines to determine chromospheric activity; correlation of that
-  against age indicators; data-driven age measure for stars?
-
-## Spatial models of galaxies
-
-- stars, extinctions, HI, etc -> model of the Milky Way
-
-- same for other galaxies
-
-## Dynamical models of galaxies
-
-- dynamical modeling, esp marginalization over the DF
-
-## Instrument calibration
-
-- PSF estimation, especially for high dynamic-range imaging (eg, Fergus et al)
-
-- self calibration
-
-- probabilistic darks and flat-fields
-
-- GPs for atmospheric calibration
-
-- spectroscopic extraction
-
-## Networks of autonomous telescopes
-
-## Adaptive optics
-
 ## Models of spectra
 
 - Empirical (data-driven) models of spectra (or images or anything)
@@ -201,3 +136,67 @@ Astronomers care about the sources at...
 - Another application is in fitting quasars, where there is no precise
   physical model but it is known that linear combinations of quasars
   are not themselves realistic quasars!
+
+- Continuing with the more general brain-storm: Use of sparse methods;
+  modeling collections of spectra without previously classifying them
+  into groups of similar types (galaxy, star, quasar, etc).
+
+- simultaneous redshift estimation and spectral classification
+
+- more specific: looking at stellar variations around emission
+  lines to determine chromospheric activity; correlation of that
+  against age indicators; data-driven age measure for stars?
+
+- One holy grail is some principled combination of theory-driven and
+  data-driven models; that is, there are pretty-good models and
+  excellent observations; how do we tweak the models using the
+  observations or otherwise combine data-driven and model-driven
+  methods?
+
+## Astrophysics at low signal-to-noise
+
+Astronomers care about the sources at...
+
+- time domain issues (moving and variable)
+
+- source detection in online methods
+
+- confusion noise and crowding
+
+- Galactic center and the like
+
+- outer SS objects and the like
+
+## Stochastic variability
+
+- Quasars and reverberation
+
+- exoplanet transits at the variability limit
+
+- quasi-periodic variable stars, like RR Lyrae
+
+## Spatial models of galaxies
+
+- stars, extinctions, HI, etc -> model of the Milky Way
+
+- same for other galaxies
+
+## Dynamical models of galaxies
+
+- dynamical modeling, esp marginalization over the DF
+
+## Instrument calibration
+
+- PSF estimation, especially for high dynamic-range imaging (eg, Fergus et al)
+
+- self calibration
+
+- probabilistic darks and flat-fields
+
+- GPs for atmospheric calibration
+
+- spectroscopic extraction
+
+## Networks of autonomous telescopes
+
+## Adaptive optics
