@@ -7,6 +7,12 @@ in astronomy, astrophysics, and cosmology.
 
 David W. Hogg (NYU)
 
+### Acknowledgements:
+
+These ideas come from many quarters; at least I am indebted to
+- Dustin Lang (Princeton)
+- Hans-Walter Rix (MPIA)
+
 ### License:
 
 Copyright 2012 the author.  You may copy and distribute this provided
@@ -15,7 +21,31 @@ you make no changes to it whatsoever.
 ### Revision history:
 
 This document is a work in progress; it isn't even in a "first draft"
-state.  This version is dated 2012-04-23.
+state.  This version is dated 2012-06-06.  I generally put the thing
+I am most interested in first; that is, I tend to prepend.
+
+## Three-dimensional modeling of the Milky Way
+
+- Dust modeling in three dimensions
+
+- Mass modeling with realistic models
+
+- Phase-space models in 6-d that don't rely on integrability
+
+## Radio interferometry
+
+Interferometers measure correlations (amplitude and phase) between
+antennae, each of which sees a noisy sky (noisy because of finite
+antenna temperature.  The standard practice in radio astronomy is to
+run some form of *Clean*, which is an algorithm to reconstruct a plausible
+sky image from the correlations on a finite set of baselines.  There are
+many variants of Clean, but most (perhaps all) have many problems:
+
+* There is no probabilistic model of the data stream; there is no likelihood function.
+* Priors are either not specified or else extremely naive.
+* Parts of the sky are often set to zero by hand.
+* The algorithms do not generally return uncertainty estimates on the reconstructed scene.
+* There is no way to quantitatively compare different scene options.
 
 ## Probabilistic catalogs
 
@@ -99,11 +129,20 @@ Astronomers care about the sources at...
 
 ## Spectroscopic modeling and classification
 
-- sparse methods
+- sparse methods; modeling collections of spectra without 
+  previously classifying them into groups of similar types 
+  (galaxy, star, quasar, etc).
 
 - simultaneous redshift estimation and spectral classification
 
-- combining theory-driven and data-driven models sensibly
+- combining theory-driven and data-driven models sensibly; that
+  is, there are pretty-good models and excellent observations;
+  how do we tweak the models using the observations or otherwise
+  combine data-driven and model-driven methods?
+
+- more specific: looking at stellar variations around emission
+  lines to determine chromospheric activity; correlation of that
+  against age indicators; data-driven age measure for stars?
 
 ## Spatial models of galaxies
 
