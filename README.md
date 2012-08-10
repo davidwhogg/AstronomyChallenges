@@ -154,6 +154,51 @@ because:
   observations or otherwise combine data-driven and model-driven
   methods?
 
+## Instrument calibration
+
+- In many cases (most?) the science data are more valuable for
+  calibration purposes than any specifically designed calibration data
+  or program.  One interesting question is whether a telescope+camera
+  flatfield, dark, and noise model could be inferred from a set of
+  data with no reference to the calibration programs.  One place to
+  try this is the HST Archive, where all HST data ever taken are
+  available.  Question: Could HST have been calibrated without its
+  (expensive, time-consuming) calibration programs!
+
+- Related to the above, a question asked of me by Bernhard Schölkopf:
+  If you had the library of every image ever taken by some digital
+  camera, could you figure out its dark, flat, and noise properties?
+  This is *harder* than the astronomy problem because the scenes are
+  more complicated, but *easier* because more of the pixels are well
+  illuminated in more photos.
+
+- PSF estimation, especially for high dynamic-range imaging (eg,
+  Fergus et al).
+
+- Priors on calibration parameters, especially PSFs (which vary with
+  the atmosphere and telescope configuration) and world-coordinate
+  systems (astrometric calibration).  We generally infer these without
+  priors, but for PSFs in particular, usually the data are noisy and
+  the inferences are noisier than they could be given that we know a
+  *lot* about what kinds of PSFs are possible.
+
+- Probabilistic darks and flat-fields: We usually use point estimates
+  for these, but is there any place where there is an advantage to
+  having a probabilistic description and/or is this necessary?
+
+- GPs for atmospheric calibration: The atmosphere varies
+  stochastically (in brightness and transparency) but in a continuous
+  fashion.  This sounds like a great application for Gaussian
+  Processes.
+
+- Spectroscopic extraction: Right now there is a lot of reliance on
+  calibration data, with both too much and too little flexibility in
+  the instrument model: Too much flexibility because each exposure
+  sequence (arc, flat, science, flat, arc) is calibrated independently
+  (no continuity or priors or etc).  Too little flexibility because
+  the science exposure is supposed to be at the precise interpolated
+  mean of the surrounding calibration data.
+
 ## Astrophysics at low signal-to-noise
 
 Astronomers care about the sources at...
@@ -185,18 +230,6 @@ Astronomers care about the sources at...
 ## Dynamical models of galaxies
 
 - dynamical modeling, esp marginalization over the DF
-
-## Instrument calibration
-
-- PSF estimation, especially for high dynamic-range imaging (eg, Fergus et al)
-
-- self calibration
-
-- probabilistic darks and flat-fields
-
-- GPs for atmospheric calibration
-
-- spectroscopic extraction
 
 ## Networks of autonomous telescopes
 
