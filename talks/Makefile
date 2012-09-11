@@ -2,7 +2,10 @@
 RM = /bin/rm -fv
 PDFLATEX = pdflatex
 
-all: astroinformatics_2012-09-11.pdf
+all: pgm astroinformatics_2012-09-11.pdf
+
+pgm:
+	cd ../pgm ; make
 
 %.pdf: %.tex *.jpg *.png
 	$(PDFLATEX) $*
