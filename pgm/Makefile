@@ -6,7 +6,7 @@ all: abc.pdf wl.pdf gaia.pdf
 
 %.pdf: %.tex
 	latex $*
-	dvipdf $*
+	dvipdf -E $*
 
 clean:
 	$(RM) *.log *.aux *.dvi *.bbl *.blg
