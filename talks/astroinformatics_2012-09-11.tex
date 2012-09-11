@@ -64,8 +64,8 @@
     \begin{itemize}
     \item at each ``data point'' (on the distributed system), do an
       operation on that datum, produce output
-    \item think: Search document for ``kittens''; return DocumentID
-      and PageRank if it hits.
+    \item think: \emph{Search document for ``kittens''; return
+      DocumentID and PageRank if it hits.}
     \item \emph{distributed data} is the key: Every datum is near a
       CPU.
     \end{itemize}
@@ -73,8 +73,8 @@
     \begin{itemize}
     \item between each pair of outputs, do an operation and return one
       new output, recurse up the tree
-    \item think: Compare two PageRanks and return DocumentID and
-      PageRank of the better.
+    \item think: \emph{Compare two PageRanks and return DocumentID and
+      PageRank of the better.}
     \item tree structure of the data center is the key: There are only
       $\log_2 N$ branches to any datum.
     \end{itemize}
@@ -99,6 +99,9 @@
     \end{itemize}
   \item Go uphill.  Repeat as necessary; each iteration only takes
     $\log N$ time.
+    \begin{itemize}
+    \item (use L-BFGS or whatever you like)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -120,9 +123,9 @@
     \begin{itemize}
     \item ``non-parametric'' means the model \emph{gets bigger as the
       data set gets bigger} (or better)
-    \item think: As you observe more and more galaxies, with better
-      redshift estimates, you increase the angular and redshift
-      resolution of your shear map.
+    \item think: \emph{As you observe more and more galaxies, with
+      better redshift estimates, you increase the angular and redshift
+      resolution of your shear map.}
     \item importantly, non-parametric models are \emph{never} inferred
       at high signal-to-noise
     \end{itemize}
