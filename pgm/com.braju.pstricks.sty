@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% com.braju.pstricks.sty
+%
+% Author: Henrik Bengtsson, hb@maths.lth.se
+% Date: 2001-12-03
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{com.braju.pstricks}[2000/12/03 PSTricks extensions by 
+Henrik Bengtsson <hb@maths.lth.se>]
+
+\RequirePackage{pst-all}
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+\RequirePackage{keyval}
+
+\catcode`\@=11%
+
+\newpsobject{showgrid}{psgrid}{subgriddiv=1,griddots=10,gridlabels=6pt}
+
+%\newlength{\pst@dima}
+%\newlength{\pst@dimb}
+%\newlength{\pst@dimc}
+
+\newcommand{\pst@Rectangle}[3][] {%
+  \def\pst@args{#1,}%
+  \ifthenelse{\equal{\pst@args}{,}}{\def\pst@args{}}{}%
+%
+  \setlength{\pst@dima}{#3 / 2}%
+  \setlength{\pst@dimb}{#2}% width
+  \setlength{\pst@dimc}{#3}% height
+  \psframebox[\pst@args framesep=0pt]{%
+    \rule{0pt}{\pst@dimc}%
+    \rule{\pst@dimb}{0pt}%
+  }%
+}% \pst@Rectangle
+
+\newcommand{\pst@Square}[2][] {%
+  \pst@Rectangle[#1]{#2}{#2}%
+}% \pst@Square
+
+\newcommand{\pst@Circle}[2][] {%
+  \def\pst@args{#1,}%
+  \ifthenelse{\equal{\pst@args}{,}}{\def\pst@args{}}{}%
+%
+  \setlength{\pst@dima}{#2 / 2}%
+  \setlength{\pst@dimb}{#2}% diameter
+  \raisebox{\pst@dima}{%
+    \pscirclebox[\pst@args framesep=0pt]{\rule{\pst@dimb}{0pt}}%
+  }%
+}% \pst@Circle
+
+\newlength{\pst@Thermometer@width}
+\setlength{\pst@Thermometer@width}{0.5em}
+\define@key{pst@Thermometer}{width}[0.5em]{\setlength{\pst@Thermometer@width}{#1}}   
+\newlength{\pst@Thermometer@height}
+\setlength{\pst@Thermometer@height}{5ex}
+\define@key{pst@Thermometer}{height}[5ex]{\setlength{\pst@Thermometer@height}{#1}}   
+\newcommand{\pst@Thermometer@threshold}{}
+\define@key{pst@Thermometer}{threshold}[5ex]{\renewcommand{\pst@Thermometer@threshold}{#1}}
+
+\newcommand{\pst@Thermometer}[2][width=0.5em,height=5ex] {%
+  \setkeys{pst@Thermometer}{#1}%
+  \rule{\pst@Thermometer@width}{0pt}\hspace{-\pst@Thermometer@width}%
+  \rule{0pt}{\pst@Thermometer@height}%
+  \pspolygon[fillstyle=solid,fillcolor=white,linearc=0.15\pst@Thermometer@width,xunit=\pst@Thermometer@width,yunit=\pst@Thermometer@height](0,0)(0,0.25)(0.25,0.30)(0.25,1)(0.75,1)(0.75,0.30)(1,0.25)(1,0)%
+  \ifthenelse{\lengthtest{#2pt > 0.30pt}}{%
+    \pspolygon[fillstyle=solid,fillcolor=black,linearc=0.15\pst@Thermometer@width,xunit=\pst@Thermometer@width,yunit=\pst@Thermometer@height](0,0)(0,0.25)(0.25,0.30)(0.25,#2)(0.75,#2)(0.75,0.30)(1,0.25)(1,0)%
+  }{%
+    \pspolygon[fillstyle=solid,fillcolor=black,linearc=0.15\pst@Thermometer@width,xunit=\pst@Thermometer@width,yunit=\pst@Thermometer@height](0,0)(0,#2)(0.25,#2)(0.75,#2)(1,#2)(1,0)%
+  }%
+}% \pst@Thermometer
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HISTORY
+%
+% 2001-12-03
+% * BUG FIX: Forgot to include 'keyval'.
+% 2001-11-28
+% * Added pst@Thermometer.
+% 2001-10-18
+% * Created!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

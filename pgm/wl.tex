@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{pst-all}
+\usepackage{auto-pst-pdf}
+\usepackage{com.braju.graphicalmodels}
+\catcode`\@=11%
+\pagestyle{empty}
+\begin{document}
+
+\newlength{\gmunit}
+\setlength{\gmunit}{12mm}
+
+\TeXtoEPS
+\psset{unit=\gmunit,arrowscale=1.5}
+\SpecialCoor
+
+
+\begin{pspicture}(0,0)(14,14)
+% \showgrid
+
+% node utils
+\newcommand{\node}[4]{\rput(#1){\GM@node[nodeSize=\gmunit]{#3}}\GM@label[offset=#2\gmunit]{#3}{#4}}
+\newcommand{\dnode}[4]{\rput(#1){\GM@node[nodeSize=\gmunit]{#3}}\rput(#1){\GM@node[nodeSize=0.9\gmunit]{nil}}\GM@label[offset=#2\gmunit]{#3}{#4}}
+\newcommand{\onode}[4]{\rput(#1){\GM@node[nodeSize=\gmunit,observed=true,observedColor=lightgray]{#3}}\GM@label[offset=#2\gmunit]{#3}{#4}}
+\newcommand{\qnode}[4]{\rput(#1){\GM@node[nodeSize=\gmunit,query=true]{#3}}\GM@label[offset=#2\gmunit]{#3}{#4}}
+\newcommand{\darr}[2]{\ncline[arrows=->]{#1}{#2}}
+
+% NODES
+
+% Top row hyperparameters.
+\node{4,10} {-0.2} {A0}{$A_0$}
+\node{7,10} {-0.1} {w} {$\omega$}
+
+% K plate
+\rput(3.5,11){\GM@plate[plateLabelPos=tl]{3.5}{2}%
+    {\hspace{1.5mm}$k = 1, \ldots, K$}}
+\node{4.5,12} {-0.2} {A1}{$A_k$}
+\node{6,12} {-0.2} {B1}{$B_k$}
+
+\node{9,11} {-0.1} {S} {$S$}
+\node{10.25,10}{-0.2} {Vs}{$V_S$}
+
+% Left side hyperparameters.
+\node{2,7}  {-0.1} {eta}{$\eta^2$}
+\node{2,5.5} {-0.1} {B}  {$B$}
+\node{2,4} {-0.2} {Vb} {$V_B$}
+
+% Right side hyperparameters.
+\node{11,7} {-0.1} {Vsig}{$V_\sigma$}
+
+% Observation plate.
+\rput(3,3){\GM@plate[plateLabelPos=bl]{7}{6}%
+    {\hspace{3mm}$i = 1, \ldots, N$}}
+
+\onode{4,8} {-0.1} {t} {$t_i$}
+\node{6,8}  {-0.1} {mu}{$\mu_i$}
+\node{9,8}  {-0.1} {sig}{$\sigma_i$}
+\node{6,6}  {-0.1} {fs}{$f_i^*$}
+\node{9,6}  {-0.1} {ss}{$s_i^*$}
+\node{4,4}  {-0.1} {b}{$b_i$}
+\onode{6,4} {-0.1} {f}{$f_i$}
+\onode{9,4} {-0.1} {s}{$s_i$}
+
+% Arrows
+% - from top
+\darr{A0}{mu}
+\darr{A1}{mu}
+\darr{B1}{mu}
+\darr{w}{mu}
+
+\darr{S}{sig}
+\darr{Vs}{sig}
+
+% - from left
+\darr{B}{b}
+\darr{Vb}{b}
+\darr{eta}{fs}
+
+% - from right
+\darr{Vsig}{ss}
+
+% - on plate
+\darr{t}{mu}
+\darr{mu}{fs}
+\darr{sig}{ss}
+\darr{b}{f}
+\darr{fs}{f}
+\darr{f}{s}
+\darr{ss}{s}
+\darr{sig}{fs}
+
+\end{pspicture}
+\endTeXtoEPS
+\end{document}
+

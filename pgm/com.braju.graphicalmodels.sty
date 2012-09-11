@@ -1,0 +1,194 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% com.braju.pedigrees.sty
+%
+% Author: Henrik Bengtsson, hb@maths.lth.se
+% Date: 2001-10-26
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{com.braju.graphicalmodels}[2000/10/26 PSTricks extensions by 
+Henrik Bengtsson <hb@maths.lth.se>]
+
+\RequirePackage{com.braju.pstricks}
+\RequirePackage{keyval}
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+
+\catcode`\@=11%
+
+\SpecialCoor
+
+\newlength{\GM@x} \pssetlength{\GM@x}{0}
+\newlength{\GM@y} \pssetlength{\GM@y}{0}
+\newlength{\GM@xa} \pssetlength{\GM@xa}{0}
+\newlength{\GM@ya} \pssetlength{\GM@ya}{0}
+\newlength{\GM@xb} \pssetlength{\GM@xb}{0}
+\newlength{\GM@yb} \pssetlength{\GM@yb}{0}
+\newlength{\GM@xc} \pssetlength{\GM@xc}{0}
+\newlength{\GM@yc} \pssetlength{\GM@yc}{0}
+
+\newlength{\GM@dx} \pssetlength{\GM@dx}{0}
+\newlength{\GM@dy} \pssetlength{\GM@dy}{0}
+
+
+% Temporary length variables
+\newlength{\GM@dima}
+\newlength{\GM@dimb}
+\newlength{\GM@dimc}
+
+% Temporary counters
+\newcounter{GM@counta}
+\newcounter{GM@countb}
+\newcounter{GM@countc}
+
+\newlength{\GM@nodeSize}
+\setlength{\GM@nodeSize}{6mm}
+\define@key{GM}{nodeSize}[6mm]{\setlength{\GM@nodeSize}{#1}}   
+
+\newlength{\GM@offset}
+\setlength{\GM@offset}{0.8\GM@nodeSize}
+\define@key{GM}{offset}[0.8\GM@nodeSize]{\setlength{\GM@offset}{#1}}   
+
+\newcommand{\GM@angle}{0}
+\define@key{GM}{angle}[0]{\renewcommand{\GM@angle}{#1}}   
+
+\newcounter{GM@observed}%
+\define@key{GM}{observed}[false]{%
+  \ifthenelse{\equal{#1}{true}}{%
+    \setcounter{GM@observed}{1}%
+  }{%
+    \setcounter{GM@observed}{0}%
+  }%
+}
+
+\newcounter{GM@query}%
+\define@key{GM}{query}[false]{%
+  \ifthenelse{\equal{#1}{true}}{%
+    \setcounter{GM@query}{1}%
+  }{%
+    \setcounter{GM@query}{0}%
+  }%
+}
+
+\newcommand{\GM@observedColor}{gray}%
+\define@key{GM}{observedColor}[gray]{%
+  \renewcommand{\GM@observedColor}{#1}%
+}
+
+\newcommand{\GM@plateLabelPos}{br}%
+\define@key{GM}{plateLabelPos}[br]{%
+  \renewcommand{\GM@plateLabelPos}{#1}%
+}
+
+\setkeys{GM}{%
+  observed=false,
+  observedColor=gray,
+  nodeSize=6mm,
+  angle=0, offset=10mm,
+  plateLabelPos=br
+}%
+
+\newcommand{\GM@node}[2][observed=false,query=false]{%
+  \setkeys{GM}{observed=false,query=false}% Default values!
+  \setkeys{GM}{#1}%
+  \ifthenelse{\value{GM@observed}=1}{%
+    \psset{fillstyle=solid,fillcolor=\GM@observedColor,framesep=0pt}%
+  }{%
+    \psset{fillstyle=solid,fillcolor=white,framesep=0pt}%
+  }%
+   \ifthenelse{\value{GM@query}=0}{%
+ \circlenode{#2}{\rule{0pt}{\GM@nodeSize}}%
+  }{%
+ \fnode[framesize=\GM@nodeSize]{#2}{\rule{0pt}{0pt}}%
+  }%
+ %\circlenode{#2}{\rule{0pt}{\GM@nodeSize}}%
+ % \ifthenelse{\value{GM@query}=1}{%
+ %   \setlength{\GM@dima}{\GM@nodeSize / 2}%
+ %   \rput(-\GM@dima,\GM@dima)?%
+  %}{}%
+}
+
+\newcommand{\GM@label}[3][angle=0,offset=0.8\GM@nodeSize]{%
+  \setkeys{GM}{angle=0,offset=0.8\GM@nodeSize}% Default values!
+  \setkeys{GM}{#1}%
+  \setcounter{GM@counta}{\GM@angle}%
+  \ifthenelse{\value{GM@counta} < 0}{%
+    \addtocounter{GM@counta}{360}%
+  }{}%
+
+  \ifthenelse{\value{GM@counta} > 45}{%
+    \ifthenelse{\value{GM@counta} > 135}{%
+      \ifthenelse{\value{GM@counta} > 225}{%
+        \ifthenelse{\value{GM@counta} > 315}{%
+          \def\GM@refpoint{l}%   315 < angle <= 360
+        }{\def\GM@refpoint{t}}%  225 < angle <= 315
+      }{\def\GM@refpoint{r}}%    135 < angle <= 225
+    }{\def\GM@refpoint{b}}%       45 < angle <= 135
+  }{%
+    \def\GM@refpoint{l}%           0 < angle <= 45
+  }%
+  \SpecialCoor%
+%  \rput(#2){\pscircle*{1pt}}%
+%  \rput(#2){\rput(\GM@offset;0){\pscircle*{1pt}}}%
+%  \rput(#2){\rput(\GM@offset;90){\pscircle*{1pt}}}%
+%  \rput(#2){\rput(\GM@offset;180){\pscircle*{1pt}}}%
+%  \rput(#2){\rput(\GM@offset;270){\pscircle*{1pt}}}%
+  \rput(#2){\rput[\GM@refpoint](\GM@offset;\GM@angle){#3}}%
+}
+
+\newcommand{\GM@ldots}[2][]{%
+  \setkeys{GM}{#1}%
+  \rnode{#2}{\Large~$\ldots$~}%
+}
+
+\newcommand{\GM@parameter}[2][]{%
+  \setkeys{GM}{#1}%
+  \setlength{\GM@dima}{0.4\GM@nodeSize}%
+  \setlength{\GM@dimb}{0.5\GM@dima}%
+  \circlenode{#2}{%
+    \rule{0pt}{\GM@dima}%
+    \raisebox{\GM@dimb}{\pscircle*{1.5pt}}%   % The dot
+  }%
+}
+
+\newcommand{\GM@set}[1]{%
+  \setkeys{GM}{#1}%
+}%
+
+\newcommand{\GM@plate}[4][]{%
+  \setkeys{GM}{#1}%
+  \psframe[linewidth=1pt,framearc=.1,fillstyle=none](0,0)(#2,#3)%
+  \ifthenelse{\equal{\GM@plateLabelPos}{br}}{
+    \rput[r](#2,0){\raisebox{1.5em}{#4~}}%
+  }{\ifthenelse{\equal{\GM@plateLabelPos}{tr}}{
+    \rput[r](#2,#3){\raisebox{-2em}{#4~}}%
+  }{\ifthenelse{\equal{\GM@plateLabelPos}{tl}}{
+    \rput[l](0,#3){\raisebox{-2em}{~#4}}%
+  }{\ifthenelse{\equal{\GM@plateLabelPos}{bl}}{
+    \rput[l](0,0){\raisebox{1.5em}{~#4}}%
+  }{}}}}%
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HISTORY
+%
+% 2001-10-26
+% * In \GM@label the refpoints was changed from 'c' to 'r' for
+%   135 < angle <= 225.
+%
+% 2001-10-24
+% * Added \GM@label.
+% * Added support for query argument in \GM@node.
+%
+% 2001-10-23
+% * Added \GM@x* and \GM@y* and \GM@dx and \GM@dy.
+% * Added \GM@ldots.
+% * Added \GM@set.
+% * Added \GM@observedColor.
+% * Added \GM@plate and key plateLabelPos.
+%
+% 2001-10-22
+% * Created!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
