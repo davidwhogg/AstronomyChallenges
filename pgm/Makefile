@@ -1,12 +1,10 @@
-.SUFFIXES: .tex .pdf
+.SUFFIXES: .py .pdf
 RM = /bin/rm -fv
-PDFLATEX = pdflatex
 
-all: abc.pdf wl.pdf gaia.pdf
+all: bca.pdf weaklensing.pdf gaia.pdf
 
-%.pdf: %.tex
-	latex $*
-	dvipdf -E $*
+%.pdf: %.py
+	python $*.py
 
 clean:
 	$(RM) *.log *.aux *.dvi *.bbl *.blg
