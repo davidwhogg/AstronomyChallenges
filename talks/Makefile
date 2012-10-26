@@ -7,7 +7,7 @@ all: pgm astroinformatics_2012-09-11.pdf
 pgm:
 	cd ../pgm ; make
 
-%.pdf: %.tex *.jpg *.png
+%.pdf: %.tex ../pgm/*.pdf
 	$(PDFLATEX) $*
 
 clean:
