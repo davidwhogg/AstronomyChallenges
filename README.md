@@ -16,8 +16,7 @@ These ideas come from many quarters; at least I am indebted to
 
 ### License:
 
-Copyright 2012 the author.  You may copy and distribute this provided
-you make no changes to it whatsoever.
+Copyright 2012 the author.  **All rights reserved.**
 
 ### Revision history:
 
