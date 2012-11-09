@@ -15,7 +15,7 @@ def recurse(pgm, nodename, level, c):
     r1nodename = "r%02d%04d" % (level, r)
     if 2 * r == c:
         print "adding ", r1nodename
-        pgm.add_node(daft.Node(r1nodename, r"reduce", 2**level * (r + 0.5) - .5, 3 - 0.75 * level, aspect=1.9))
+        pgm.add_node(daft.Node(r1nodename, r"reduce", 2**level * (r + 0.5) - .5, 3 - 0.7 * level, aspect=1.9))
     pgm.add_edge(nodename, r1nodename)
     if 2 * r == c:
         return recurse(pgm, r1nodename, level + 1, r)
