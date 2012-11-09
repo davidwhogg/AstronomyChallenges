@@ -2,7 +2,7 @@
 RM = /bin/rm -fv
 PDFLATEX = pdflatex
 
-all: pgm astroinformatics_2012-09-11.pdf
+all: pgm aps_prairie_2012-11-09.pdf
 
 pgm:
 	cd ../pgm ; make

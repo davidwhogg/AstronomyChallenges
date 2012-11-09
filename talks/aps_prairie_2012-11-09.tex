@@ -1,0 +1,304 @@
+% Copyright 2012 David W. Hogg (NYU).  All rights reserved.
+
+\documentclass[pdftex]{beamer}
+\input{./hogg_presentation} % hogg standard colors
+\setlength{\paperheight}{3.5in}
+% 1.77778 is the ratio of 16 to 9
+\setlength{\paperwidth}{1.77778\paperheight}
+\setlength{\textwidth}{0.85\paperwidth}
+\usepackage{amssymb,amsmath,mathrsfs}
+
+\title{Big data challenges for physics in the next decades}
+\author[David W. Hogg (NYU)]{David W. Hogg \\
+  \textsl{\small Center for Cosmology and Particle Physics,
+                 New York University}}
+\date{2012 November 09}
+
+\newcommand{\conclusion}{
+\begin{frame}
+  \frametitle{punchlines}
+  \begin{itemize}
+  \item Huge data sets create new opportunities.
+    \begin{itemize}
+    \item they also present new challenges
+    \end{itemize}
+  \item Industrial (dot-com) methods are brilliant.
+    \begin{itemize}
+    \item they can only solve a very limited set of problems
+    \end{itemize}
+  \item We won't reap the full benefit of larger data sets without new technology.
+    \begin{itemize}
+    \item call to arms
+    \item (and get rich too!)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\conclusion
+
+\begin{frame}
+  \frametitle{My day job}
+  \begin{itemize}
+  \item Lang \& Hogg {\small(forthcoming)}: a $10^9$-parameter model of the
+    $10^{13}$ \project{Sloan Digital Sky Survey} pixels (\project{The Tractor})
+  \item Brewer \etal\ {\small(forthcoming)}: Bayesian non-parametrics but with
+    priors that represent our actual prior knowledge
+  \item Foreman-Mackey \etal\ {\small(arXiv:1202.3665)}:
+    \project{emcee}, the MCMC Hammer: flexible, parallelized, adaptive
+    sampler
+  \item Bovy, Murray, Hogg {\small(arXiv:0903.5308)}: a dynamical inference
+    fully marginalizing out a non-parametric distribution function
+  \item Bovy \etal\ {\small(arXiv:1105.3975)}: a 60,000-parameter model of
+    700,000 flux measurements, followed by predictions for 160,000,000
+    point sources
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{scale}
+  \begin{itemize}
+  \item \project{Large Synoptic Survey Telescope}: $10^{10}$ galaxies in $10^{15}$ pixels
+    \begin{itemize}
+    \item get the cosmic gravitational-lensing shear map
+    \item and then the cosmological parameters
+    \item $10^9$ stars too
+    \end{itemize}
+  \item \project{Gaia}: $10^{9}$ stars in $10^{12}$ pixels
+    \begin{itemize}
+    \item infer the dynamics of the Milky Way
+    \item but also---necessarily---the distribution function of stars
+      in that potential
+    \item precision requirements are \emph{outrageous} (milli-pixel positions)
+    \end{itemize}
+  \item \project{Large Hadron Collider} instruments: taking data $10^7$ times faster than it can be moved to disk
+    \begin{itemize}
+    \item they found the Higgs! (probably)
+    \item have to make hard cuts and \emph{throw away data}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{how do you store big data sets?}
+  \begin{itemize}
+  \item Distribute the data.
+    \begin{itemize}
+    \item $< 1$~Tb of data per CPU, thousands of CPUs
+    \item all modern databases can do this, even open-source ones
+    \end{itemize}
+  \item There is a CPU near every data point.
+    \begin{itemize}
+    \item and there are many, many CPUs
+    \end{itemize}
+  \item Hardware is cheap; management is expensive.
+  \item Massive CPU redundancy creates opportunities\ldots
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{map--reduce or die}
+  \begin{itemize}
+  \item \textsl{``We won't even consider algorithms that can't be
+    written in the map--reduce framework.''}
+  \item map:
+    \begin{itemize}
+    \item at each ``data point'' (on the distributed system), do an
+      operation on that datum, produce output
+    \item \texttt{if "kittens" is in document: \\ ~~~~return (URL, PageRank)}
+    \item \emph{distributed data} is the key: Every datum is near a
+      CPU.
+    \end{itemize}
+  \item reduce:
+    \begin{itemize}
+    \item between each pair of outputs, do an operation and return one
+      new output, recurse up the tree
+    \item \texttt{if PageRank[0] > PageRank[1]: \\ ~~~~return (URL[0], PageRank[0]) \\ else: \\ ~~~~return (URL[1], PageRank[1])}
+    \item \emph{tree structure} of the data center is the key: There are only
+      $\log_2 N$ branches to any datum.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{map--reduce or die}
+  \begin{itemize}
+  \item Brilliant.  And a huge opportunity.
+    \begin{itemize}
+    \item the computational complexity is $N\,\log N$
+    \item but the \emph{time it takes} scales as just $\log N$
+    \end{itemize}
+  \item Map--reduce made internet search \emph{possible}.
+    \begin{itemize}
+    \item (goes by many names, some trade-marked!)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{maximum-likelihood and map--reduce}
+  \begin{itemize}
+  \item full-data likelihood: $\displaystyle p(D\given\theta) =
+    \prod_n p(d_n\given\theta)$
+  \item Find the \emph{maximum with respect to $\theta$} of this
+    likelihood.
+  \item map:
+    \begin{itemize}
+    \item compute $\displaystyle\frac{\dd \ln p(d_n\given\theta)}{\dd\theta}$
+    \end{itemize}
+  \item reduce:
+    \begin{itemize}
+    \item pairwise sum
+    \end{itemize}
+  \item Go uphill.  Repeat as necessary; each iteration only takes
+    $\log N$ time.
+    \begin{itemize}
+    \item (use L-BFGS or conjugate-gradient or whatever you like)
+    \item complexity is $N\,\log N$, \emph{compute time} is $\log N$
+    \end{itemize}
+  \item Total optimization typically takes $M^2\log N$ time, where $M$ is the \emph{number of parameters}.
+    \begin{itemize}
+    \item ($M^3\log N$ if you want a full error analysis)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{all that matters is the number of parameters}
+  \begin{itemize}
+  \item So we are done, right?
+  \item<2-> \emph{Nope.}
+  \item<3-> In all \emph{real} problems, the number of parameters $M$ \emph{scales with the data volume $N$}.
+  \item<3-> If you want to go beyond maximum-likelihood, things get \emph{hard}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{physics problems are hierarchical}
+  \includegraphics{../pgm/weaklensing.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{nuisance parameters}
+  \begin{itemize}
+  \item Nuisance parameters tend to increase in number with the data size.
+  \item Relevant backgrounds get more subtle and must be modeled more carefully.
+  \item Details of sample selection and observed data distribution functions become more important.
+  \item As precision expectations rise (and they rise with $N$), noise models get more realistic.
+    \begin{itemize}
+    \item all these effects bring new parameters
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{calibration parameters}
+  \begin{itemize}
+  \item As you go from $N=10^3$ to $N=10^9$, you expect to do more than $10^3$ times better in accuracy.
+  \item Calibration of the device must get correspondingly better.
+    \begin{itemize}
+    \item time-dependence, temperature, Solar Cycle, hysteresis
+    \item all these effects bring new parameters
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bayesian inference \emph{isn't} map--reduce}
+  \begin{itemize}
+  \item $\displaystyle p(\theta\given D) = \frac{1}{Z}\,p(\theta)\,\prod_n p(d_n\given\theta)$
+  \item map:
+    \begin{itemize}
+    \item compute functions $p(d_n\given\theta)$
+    \end{itemize}
+  \item reduce:
+    \begin{itemize}
+    \item product functions together (starting with the prior)
+    \end{itemize}
+  \item but think about how you pass forward those functions
+    \begin{itemize}
+    \item $\theta$ has $10^6$ or more parameters
+    \item functions are multi-modal
+    \item support is broader than Gaussian
+    \item when the data get large, the \emph{resolution required} becomes unsustainable
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{even the frequentists are doomed}
+  \begin{itemize}
+  \item All the ``$M$ scaling with $N$'' arguments apply to frequentists and Bayesians alike.
+  \item Computing the full-data likelihood \emph{function} is just as hard as computing the full-data posterior PDF.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{marginalization is hard---and unavoidable}
+  \includegraphics{../pgm/weaklensing.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bayesian state-of-the-art}
+  \begin{itemize}
+  \item There \emph{are} huge non-parametric Bayesian inferences with
+    massive marginalizations out there.
+  \item How were they done?
+    \begin{itemize}
+    \item carefully chosen priors that make the inferences and
+      marginalizations analytic or tractable
+    \item \emph{we can't do this}
+    \item why not?  Because for us the priors \emph{actually are} our
+      prior beliefs.  Our \emph{real} prior beliefs are not conjugate
+      to anything!
+    \end{itemize}
+  \item ``Bayesian'' is becoming a bad word.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{my approach}
+  \begin{itemize}
+  \item<2-> Brute Force (tm).
+  \item<3-> Plus some help from applied math and computer vision.
+    \begin{itemize}
+    \item approximate Bayesian inference
+    \item very clever Markov-Chain Monte Carlo methods
+    \item exploiting problem sparsity
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\conclusion
+
+\end{document}
+
+  \item \emph{non-parametric} shear map or distribution function
+    \begin{itemize}
+    \item ``non-parametric'' means the model \emph{gets bigger as the
+      data set gets bigger} (or better)
+    \item think: \emph{As you observe more and more galaxies, with
+      better redshift estimates, you increase the angular and redshift
+      resolution of your shear map.}
+    \item importantly, non-parametric models are \emph{never} inferred
+      at high signal-to-noise
+    \end{itemize}
+
+\begin{frame}
+  \frametitle{there are no linear problems}
+  \begin{itemize}
+  \item Even if your noise is Gaussian, you never know the noise
+    variance at high precision.
+  \item In most real situations, the data are produced by a
+    \emph{mixture of processes}.
+  \item There are always multiple modes to the likelihood function,
+    and broad support in parameter space.
+  \end{itemize}
+\end{frame}
+
