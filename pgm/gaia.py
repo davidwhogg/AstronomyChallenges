@@ -11,7 +11,7 @@ if __name__ == "__main__":
     pgm.add_node(daft.Node("alpha", r"$\alpha$", 3, 4))
     pgm.add_node(daft.Node("Sigma", r"$\Sigma$", 0, 3))
     pgm.add_node(daft.Node("sigma", r"$\sigma_n$", 1, 3))
-    pgm.add_plate(daft.Plate([0.5, 2.25, 2, 2.25], label=r"stars $n$"))
+    pgm.add_plate(daft.Plate([0.5, 2.25, 2, 2.25], label=r"planets $n$"))
     pgm.add_edge("omega", "true")
     pgm.add_edge("true", "obs")
     pgm.add_edge("alpha", "true")

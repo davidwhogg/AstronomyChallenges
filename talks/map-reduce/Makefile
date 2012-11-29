@@ -25,9 +25,9 @@ hogg-zoom-4-slide-small-017.jpg:
 	curl -O http://cosmo.nyu.edu/hogg/research/2010/08/15/hogg-zoom-4-slide-small-017.jpg
 
 pgm:
-	cd ../pgm ; make
+	cd ../../pgm ; make
 
-%.pdf: %.tex ../pgm/*.pdf
+%.pdf: %.tex ../../pgm/*.pdf
 	$(PDFLATEX) $*
 
 clean:
