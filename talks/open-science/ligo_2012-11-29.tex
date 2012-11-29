@@ -1,0 +1,203 @@
+% Copyright 2012 David W. Hogg (NYU).  All rights reserved.
+
+\documentclass[pdftex]{beamer}
+\input{./hogg_presentation} % hogg standard colors
+\setlength{\paperheight}{3.5in}
+% 1.77778 is the ratio of 16 to 9
+\setlength{\paperwidth}{1.77778\paperheight}
+\setlength{\textwidth}{0.85\paperwidth}
+\usepackage{amssymb,amsmath,mathrsfs}
+
+\title{1.~hierarchical probabilistic inference \\ {\small and} \\ 2.~the costs and benefits of sharing data}
+\author[David W. Hogg (NYU)]{David W. Hogg \\
+  \textsl{\small Center for Cosmology and Particle Physics,
+                 New York University}}
+\date{2012 November 29}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \begin{itemize}
+  \item \project{Gaia} will give a snapshot of positions and
+    velocities for $10^7$ to $10^9$ stars.  How do we figure out the
+    gravitational potential of the Galaxy?
+  \item<2-> Let's start by doing this in the Solar System.
+  \item<2-> If we can't do the \emph{Solar System} we can't do anything!
+  \item<2-> Imagine that you had a \emph{snapshot} of the planet positions
+    and velocities on 2009~April~1.
+  \item<2-> Could you infer that the force law is $1/r^2$~?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \begin{itemize}
+  \item In steady-state, $f(\tv{x},\tv{v})$ is a function of conserved
+    quantities only.
+  \item $\displaystyle
+        p(\tv{x}_i,\tv{v}_i|\tv{\omega},\tv{\alpha})
+      = \left|\left|\frac{\dd\tv{I}\,\dd\tv{\phi}}{\dd\tv{x}\,\dd\tv{v}}\right|\right|_{\tv{\omega}}\,\left[\frac{1}{2\pi}\right]^3
+      \,p(\tv{I}|\tv{\alpha})$
+  \item<2-> $\displaystyle
+        p(\tv{x}_i,\tv{v}_i|\tv{\omega})
+      = \int \dd\tv{\alpha}\,p(\tv{\alpha})
+      \,p(\tv{x}_i,\tv{v}_i|\tv{\omega},\tv{\alpha})$
+  \item<2-> Marginalization is hard:
+    \begin{itemize}
+    \item 200 parameters in the marginalization
+    \item more parameters than data!
+    \item priors from Gaussian processes
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \includegraphics[width=\textheight]{../../pgm/gaia.pdf}
+\end{frame}
+
+\newlength{\jacwidth}
+\setlength{\jacwidth}{0.25\textwidth}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \includegraphics[width=\jacwidth]{jacobian-3.png}\includegraphics[width=\jacwidth]{jacobian-7.png}\includegraphics[width=\jacwidth]{jacobian-0.png}\includegraphics[width=\jacwidth]{jacobian-2.png} \\
+  \includegraphics[width=\jacwidth]{jacobian-1.png}\includegraphics[width=\jacwidth]{jacobian-5.png}\includegraphics[width=\jacwidth]{jacobian-6.png}\includegraphics[width=\jacwidth]{jacobian-4.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \includegraphics[width=\textheight]{alpha.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \includegraphics[width=\textheight]{virial.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{infer dynamics from kinematics {\small (0903.5308)}}
+  \begin{itemize}
+  \item The phase-space DF model is so general, it can \emph{discover}
+    phase-space structure.
+  \item There \emph{is} phase-space structure.
+  \item All currently used point estimates---even maximum-likelihood
+    ones---either have this hard-coded (bad) or can't discover it
+    (bad).
+  \item (That said, the procedure was \emph{expensive}.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{models of no fixed complexity {\small (1211.5805)}}
+  [FAKE DATA HERE]
+\end{frame}
+
+\begin{frame}
+  \frametitle{models of no fixed complexity {\small (1211.5805)}}
+  \begin{itemize}
+  \item Images filled with stars; want to know the luminosity function of stars.
+  \item Catalog \emph{itself} is a very large blob of nuisance parameters.
+  \item Don't know (and don't care) precisely how many stars there are.
+  \item Faint stars contribute to the noise.
+  \item connections to LIGO:
+    \begin{itemize}
+    \item ``faint stars'' could be fainter GW sources
+    \item ``faint stars'' could be seismic events
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{models of no fixed complexity {\small (1211.5805)}}
+  [NEED PGM HERE]
+\end{frame}
+
+\begin{frame}
+  \frametitle{models of no fixed complexity {\small (1211.5805)}}
+  [POSTERIOR SAMPLING HERE]
+\end{frame}
+
+\begin{frame}
+  \frametitle{latent time-domain models {\small Listgarten \etal}}
+  [SOUND FIGURE HERE]
+\end{frame}
+
+\begin{frame}
+  \frametitle{latent time-domain models {\small Listgarten \etal}}
+  [CHROMATOGRAPHY FIGURE HERE]
+\end{frame}
+
+\begin{frame}
+  \frametitle{latent time-domain models {\small Listgarten \etal}}
+  \begin{itemize}
+  \item There is a latent ``true'' time-domain function.
+  \item There is a set of free ``time warping'' functions.
+  \item More parameters than data (truly non-parametric).
+  \item connections to LIGO:
+    \begin{itemize}
+    \item small wrongnesses in template can make template orthogonal to signal
+    \item very good ideas about priors or regularization
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{conclusions 1: hierarchical inference}
+  \begin{itemize}
+  \item Hierarchical inference makes experiments more accurate and precise.
+    \begin{itemize}
+    \item ``Data-driven regularization''.
+    \item The prior for each data point is informed by all other data points.
+    \item Often it is only the \emph{hyperparameters} that you care about.
+    \end{itemize}
+  \item Expect to spend a huge number of parameters on nuisances.
+    \begin{itemize}
+    \item Don't be afraid to have more parameters than data.
+    \item Don't like priors?  You only need them on your nuisance parameters.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{the costs of sharing data}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sloan Digital Sky Survey}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hipparcos}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wilkinson Microwave Anisotropy Probe}
+\end{frame}
+
+\begin{frame}
+  \frametitle{benefits of sharing data}
+\end{frame}
+
+\begin{frame}
+  \frametitle{functional testing}
+\end{frame}
+
+\begin{frame}
+  \frametitle{what to release}
+\end{frame}
+
+\begin{frame}
+  \frametitle{licensing}
+\end{frame}
+
+\begin{frame}
+  \frametitle{conclusions 2: sharing data}
+\end{frame}
+
+\end{document}
