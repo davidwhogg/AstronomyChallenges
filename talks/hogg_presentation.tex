@@ -1,0 +1,72 @@
+\usepackage{amssymb,amsmath,mathrsfs}
+\usecolortheme{default}
+
+% this one is debatable
+\renewcommand{\emph}[1]{\textbf{#1}}
+
+%%% color commands
+\newcommand{\whiteonblack}{%
+  \colorlet{fg}{white}
+  \colorlet{bg}{black}
+  \setbeamercolor{normal_text}{fg=white,bg=black}
+  \setbeamercolor{background canvas}{fg=white,bg=black}
+  \setbeamercolor{alerted_text}{fg=yellow}
+  \setbeamercolor{example_text}{fg=white}
+  \setbeamercolor{structure}{fg=white}
+  \setbeamercolor{palette_quaternary}{fg=white}
+}
+\newcommand{\blackonwhite}{%
+  \colorlet{fg}{black}
+  \colorlet{bg}{white}
+  \setbeamercolor{normal_text}{fg=black,bg=white}
+  \setbeamercolor{background canvas}{fg=black,bg=white}
+  \setbeamercolor{alerted_text}{fg=blue}
+  \setbeamercolor{example_text}{fg=black}
+  \setbeamercolor{structure}{fg=black}
+  \setbeamercolor{palette_quaternary}{fg=black}
+}
+\xdefinecolor{pink}{rgb}{1.0,0.9,0.9}
+
+%%% size and shape commands
+\newlength{\figurewidth}
+\setlength{\figurewidth}{0.9\textwidth}
+\newlength{\figureheight}
+\setlength{\figureheight}{0.9\textheight}
+
+%%% text commands
+\newcommand{\project}[1]{\textsl{#1}}
+  \newcommand{\an}{\project{Astrometry.net}}
+  \newcommand{\euclid}{\project{Euclid}}
+  \newcommand{\flickr}{\project{flickr}}
+  \newcommand{\gaia}{\project{Gaia}}
+  \newcommand{\galex}{\project{GALEX}}
+  \newcommand{\GALEX}{\galex}
+  \newcommand{\hst}{\project{HST}}
+  \newcommand{\hipparcos}{\project{Hipparcos}}
+  \newcommand{\lsst}{\project{LSST}}
+  \newcommand{\sdss}{\project{SDSS}}
+  \newcommand{\sdssiii}{\project{SDSS-III}}
+  \newcommand{\boss}{\sdssiii\ \project{BOSS}}
+  \newcommand{\osss}{\project{OSSS}}
+  \newcommand{\vo}{\project{VO}}
+  \newcommand{\rttd}{\project{Right Thing To Do}$^{\mbox{\scriptsize\sffamily{TM}}}$}
+\newcommand{\foreign}[1]{\textit{#1}}
+\newcommand{\latin}[1]{\foreign{#1}}
+  \newcommand{\cf}{\latin{cf.}}
+  \newcommand{\eg}{\latin{e.g.}}
+  \newcommand{\etal}{\latin{et~al.}}
+  \newcommand{\etc}{\latin{etc.}}
+  \newcommand{\ie}{\latin{i.e.}}
+  \newcommand{\vs}{\latin{vs.}}
+
+%%% math-mode commands
+\newcommand{\unit}[1]{\mathrm{#1}}
+  \newcommand{\rad}{\unit{rad}}
+  \newcommand{\s}{\unit{s}}
+  \newcommand{\yr}{\unit{yr}}
+  \newcommand{\km}{\unit{km}}
+  \newcommand{\kmps}{\km\,\s^{-1}}
+\newcommand{\mmatrix}[1]{\boldsymbol{#1}}
+\newcommand{\tv}[1]{\boldsymbol{#1}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\given}{\,|\,}
