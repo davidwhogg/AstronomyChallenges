@@ -115,7 +115,7 @@
 
 \begin{frame}
   \frametitle{models of no fixed complexity {\small (1211.5805)}}
-  [NEED PGM HERE]
+  \includegraphics[width=\textheight]{../../pgm/crowded.pdf}
 \end{frame}
 
 \begin{frame}
@@ -130,17 +130,17 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{latent time-domain models {\small Listgarten \etal}}
-  [SOUND FIGURE HERE]
+  \frametitle{latent time-domain models {\small Listgarten \etal, NIPS 2004}}
+  \includegraphics[trim=0 0in 0 0.4in, clip, width=\textwidth]{alignment_nips2004_sound-crop.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{latent time-domain models {\small Listgarten \etal}}
-  [CHROMATOGRAPHY FIGURE HERE]
+  \frametitle{latent time-domain models {\small Listgarten \etal, NIPS 2004}}
+  \includegraphics[trim=0 0in 0 0.4in, clip, width=\textwidth]{alignment_nips2004_chrom-crop.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{latent time-domain models {\small Listgarten \etal}}
+  \frametitle{latent time-domain models {\small Listgarten \etal, NIPS 2004}}
   \begin{itemize}
   \item There is a latent ``true'' time-domain function.
   \item There is a set of free ``time warping'' functions.
@@ -172,38 +172,119 @@
 
 \begin{frame}
   \frametitle{the costs of sharing data}
+  \begin{itemize}
+  \item The data are so damned complicated; who outside the collaboration could understand?
+  \item Data stewardship and serving is expensive and complexifies the project.
+  \item Stupid people will write stupid papers and that will reflect badly on the project.
+  \item We will have to spend our time answering helpdesk queries and swatting down dumb papers.
+  \item This is an experiment; if you want to repeat it, build your own damned \project{LIGO}.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Sloan Digital Sky Survey}
+  \begin{itemize}
+  \item \project{Early Data Release} and \project{DR1} had massive issues.
+  \item Found flat-field problem, fixed it
+    \begin{itemize}
+    \item eventually reached unheard-of photometric precision
+    \end{itemize}
+  \item Openness within the Collaboration was also invaluable.
+    \begin{itemize}
+    \item \project{SDSS} had no reserved or allocated science
+    \end{itemize}
+  \item The Collaboration was not filled with morons.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Hipparcos}
+  \begin{itemize}
+  \item Unprecedented high-precision astrometric mission run by the \emph{best people in the world}.
+  \item Produced a single data release: One final Catalog.
+  \item Issues found with distance scale by outside analyses of the Catalog
+  \item Independent re-analysis is now the go-to Catalog.
+    \begin{itemize}
+    \item the official \project{Hipparcos} Catalog is now \emph{deprecated}.
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Wilkinson Microwave Anisotropy Probe}
+  \begin{itemize}
+  \item Re-analysis of the anomalous quadrupole in the time-stream data.
+    \begin{itemize}
+    \item probably wrong
+    \end{itemize}
+  \item The ``Haze''.
+    \begin{itemize}
+    \item definitely right
+    \end{itemize}
+  \item The project spent some time bashing both results, unofficially.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{benefits of sharing data}
-\end{frame}
-
-\begin{frame}
-  \frametitle{functional testing}
+  \begin{itemize}
+  \item Science is the \emph{ultimate functional testing environment}.
+    \begin{itemize}
+    \item observatories are too complicated for any closed team to find all issues
+    \item openness within and without is the only way to get every possible effect tested
+    \item managers rarely believe this---they are paid to disbelieve
+    \end{itemize}
+  \item Good will.
+  \item Impact.
+  \end{itemize}
+    \begin{itemize}
+    \item \project{HST}, \project{Spitzer}, \project{GALEX}, and \project{SDSS} all have more archival papers than Team papers.
+    \item data release papers have citation rates in the \emph{thousands}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{what to release}
+  \begin{itemize}
+  \item There are raw data, meta data, calibrated data, events, likelihood functions, and so on.
+  \item You get more benefits if you release rawer data.
+  \item You feel more pain if you release rawer data.
+    \begin{itemize}
+    \item code is the best documentation of data
+    \item data release without code release is almost useless to you and the public
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{licensing}
+  \begin{itemize}
+  \item Consider conditional releases:
+    \begin{itemize}
+    \item registration and escrow requirements
+    \item comment rights
+    \item (bad) reserved science
+    \item (bad) MOUs
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{conclusions 2: sharing data}
+  \begin{itemize}
+  \item The costs of sharing are high.
+    \begin{itemize}
+    \item specific costs are easy to anticipate
+    \end{itemize}
+  \item The benefits of sharing are high.
+    \begin{itemize}
+    \item \emph{specific benefits are impossible to anticipate}
+    \end{itemize}
+  \item The expected functional testing benefit outweighs cost.
+    \begin{itemize}
+    \item short-term pain is compensated by long-term \emph{non-wrongness}
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \end{document}
