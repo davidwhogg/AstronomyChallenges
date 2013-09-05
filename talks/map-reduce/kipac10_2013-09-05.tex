@@ -159,32 +159,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{nuisance parameters}
-  \begin{itemize}
-  \item Nuisance parameters tend to increase in number with the data size.
-  \item Relevant backgrounds get more subtle and must be modeled more carefully.
-  \item Details of sample selection and observed data distribution functions become more important.
-  \item As precision expectations rise (and they rise with $N$), noise models get more realistic.
-    \begin{itemize}
-    \item all these effects bring new parameters
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{calibration parameters}
-  \begin{itemize}
-  \item As you go from $N=10^3$ to $N=10^9$, you expect to do more than $10^3$ times better in accuracy.
-  \item Calibration of the device must get correspondingly better.
-    \begin{itemize}
-    \item time-dependence, temperature, hysteresis, degradation, intra-pixel
-    \item all these effects bring new parameters
-    \item you usually can't measure these parameters well enough in your ``calibration program''; when $N$ is large, you end up \emph{self-calibrating}
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{Bayesian inference \emph{isn't} map--reduce}
   \begin{itemize}
   \item $\displaystyle p(\theta\given D) = \frac{1}{Z}\,p(\theta)\,\prod_n p(d_n\given\theta)$
@@ -274,8 +248,7 @@
   \begin{itemize}
   \item Is there any (long-term) use for \emph{supervised methods}?
     \begin{itemize}
-    \item train, validate, test
-    \item random forests, support vector machines, deep learning
+    \item train--test framework: random forests, deep learning
     \item do any scientific questions fall into this category?
     \end{itemize}
   \item Are we concerned about \emph{lossy steps} in data analysis?
@@ -292,6 +265,11 @@
   \item Do we want to agree on \emph{principles of data analysis}?
     \begin{itemize}
     \item requirements to saturate Cram\'er-Rao bounds?
+    \end{itemize}
+  \item Who is going to \emph{do all this work}, and when?
+    \begin{itemize}
+    \item possible operations framework, or economic model?
+    \item training and promotion issues
     \end{itemize}
   \end{itemize}
 \end{frame}
