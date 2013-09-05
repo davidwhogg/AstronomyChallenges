@@ -78,7 +78,7 @@
   \begin{itemize}
   \item map:
     \begin{itemize}
-    \item at each ``data point'' (on the distributed system), do an
+    \item at each ``data point'' (on a distributed system), do an
       operation on that datum, produce output
     \item \texttt{if "kittens" is in document: \\ ~~~~return (URL, PageRank)}
     \item \emph{distributed data} is the key: Every datum is near a
@@ -177,7 +177,7 @@
   \item As you go from $N=10^3$ to $N=10^9$, you expect to do more than $10^3$ times better in accuracy.
   \item Calibration of the device must get correspondingly better.
     \begin{itemize}
-    \item time-dependence, temperature, Solar Cycle, hysteresis
+    \item time-dependence, temperature, hysteresis, degradation, intra-pixel
     \item all these effects bring new parameters
     \item you usually can't measure these parameters well enough in your ``calibration program''; when $N$ is large, you end up \emph{self-calibrating}
     \end{itemize}
@@ -223,28 +223,10 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Bayesian state-of-the-art}
-  \begin{itemize}
-  \item There \emph{are} huge non-parametric Bayesian inferences with
-    massive marginalizations out there.
-  \item How were they done?
-    \begin{itemize}
-    \item carefully chosen priors that make the inferences and
-      marginalizations analytic or tractable
-    \item \emph{we can't do this}
-    \item why not?  Because for us the priors \emph{actually are} our
-      prior beliefs.  Our \emph{real} prior beliefs are not conjugate
-      to anything!
-    \end{itemize}
-  \item ``Bayesian'' is becoming a bad word.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{my approach}
   \begin{itemize}
-  \item<2-> Brute Force (tm).
-  \item<3-> Plus some help from applied math and computer vision.
+  \item<1-> Brute Force (tm).
+  \item<2-> Plus some help from applied math and computer vision.
     \begin{itemize}
     \item approximate Bayesian inference
     \item very clever Markov-Chain Monte Carlo methods
@@ -290,23 +272,26 @@
 \begin{frame}
   \frametitle{questions}
   \begin{itemize}
-  \item Is there any (long-term) use for ``supervised'' methods?
+  \item Is there any (long-term) use for \emph{supervised methods}?
     \begin{itemize}
     \item train, validate, test
     \item random forests, support vector machines, deep learning
     \item do any scientific questions fall into this category?
     \end{itemize}
-  \item Are we concerned about ``lossy'' steps in data analysis?
+  \item Are we concerned about \emph{lossy steps} in data analysis?
     \begin{itemize}
     \item catalog generation, two-point function estimation
     \item principled approaches require likelihood functions
     \end{itemize}
-  \item Can we more directly compare theory to data?
+  \item Can we more \emph{directly compare theory} with data?
     \begin{itemize}
     \item comparisons through ``summary statistics'' are bad!
     \item simulations are slow; put them in the inference loop?
-    \item constrained realizations?
-    \item propagation or marginalization of \emph{theory} uncertainties (known unknowns)?
+    \item propagation of \emph{theory} uncertainties (known unknowns)?
+    \end{itemize}
+  \item Do we want to agree on \emph{principles of data analysis}?
+    \begin{itemize}
+    \item requirements to saturate Cram\'er-Rao bounds?
     \end{itemize}
   \end{itemize}
 \end{frame}
