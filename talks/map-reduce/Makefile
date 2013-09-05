@@ -2,7 +2,8 @@
 RM = /bin/rm -fv
 PDFLATEX = pdflatex
 
-all: pgm hogg-zoom-4-slide-small-017.jpg aps_prairie_2012-11-09.pdf
+# all: pgm hogg-zoom-4-slide-small-017.jpg aps_prairie_2012-11-09.pdf
+all: pgm kipac10_2013-09-05.pdf
 
 hogg-zoom-4-slide-small-017.jpg:
 	curl -O http://cosmo.nyu.edu/hogg/research/2010/08/15/hogg-zoom-4-slide-small-000.jpg
