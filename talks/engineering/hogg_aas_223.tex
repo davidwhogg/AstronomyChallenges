@@ -248,24 +248,32 @@ pictures from Holmes
 \begin{frame}
   \frametitle{classification algorithms}
   \begin{itemize}
-  \item SupportVectorMachine, RandomForest, ArtificialNeuralNet
+  \item Support~Vector~Machine, Random~Forest, Artificial~Neural~Net
+    \begin{itemize}
+    \item all bad!
+    \end{itemize}
   \item value of a \emph{causal} model
     \begin{itemize}
-    \item Training and test samples don't match.
-    \item Need to classify new data taken under \emph{different conditions}.
+    \item training and test samples don't match
+    \item need to classify new data taken under \emph{different conditions}
+    \item make use of our technical knowledge about the data.
     \item Bovy \etal\ arXiv:1011.6392
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \includegraphics<1->[width=0.32\textwidth,clip=]{single_data_200_i_202_ri_gr.png}
-  \includegraphics<2->[width=0.32\textwidth,clip=]{dc_fluxdist_resample_200_i_202_20_ri_gr.png}
-  \includegraphics<3->[width=0.32\textwidth,clip=]{coadd_data_200_i_202_ri_gr.png}
+  ~ \hfill 1-epoch \hfill model \hfill 30-epoch
+  \includegraphics[width=0.35\textwidth,clip=]{single_data_200_i_202_ri_gr.png}%
+  \includegraphics[width=0.35\textwidth,clip=]{coadd_data_200_i_202_ri_gr.png}%
+  \includegraphics[width=0.35\textwidth,clip=]{dc_fluxdist_resample_200_i_202_20_ri_gr.png}
 \end{frame}
 
 \begin{frame}
-standard example from xdqso
+  \frametitle{XDQSO target selection {\small (Bovy \etal, 1011.6392)}}
+  \includegraphics<1>[height=0.9\textheight]{xdstars.png}
+  \includegraphics<2>[height=0.9\textheight]{xdqso.png}
+  \includegraphics<3>[height=0.9\textheight]{xdqso_performance.png}
 \end{frame}
 
 \begin{frame}
