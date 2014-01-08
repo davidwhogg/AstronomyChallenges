@@ -23,9 +23,21 @@
   \frametitle{punchlines}
   \begin{itemize}
   \item Calibration programs are wasteful and \emph{reduce the accuracy} of your end-of-mission results.
+    \begin{itemize}
+    \item (you will need to adjust your observing strategy)
+    \end{itemize}
   \item Homogeneity and uniformity of survey samples are \emph{impossible}, \emph{unnecessary}, and \emph{harmful} goals.
+    \begin{itemize}
+    \item (you will need to implement some probability theory)
+    \end{itemize}
   \item Proper uncertainty propagation \emph{is not easy}.
+    \begin{itemize}
+    \item (I got nothing)
+    \end{itemize}
   \item The challenge is to make precise measurements \emph{and} keep \emph{discovery space} open.
+    \begin{itemize}
+    \item (you will need to understand, quantitatively, your goals)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 }
@@ -57,6 +69,9 @@
   \item \euclid
   \item \lsst
   \item \sdssiv
+    \begin{itemize}
+    \item (I am going to get mean at the end.)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -136,26 +151,64 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{target selection as classification}
+  \frametitle{target selection is classification}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item \sdssiii\ \boss\ is taking spectra of quasars, not stars
+  \item stars outnumber (relevant) quasars by factors of hundreds
+  \item observations are noisy and theoretical models are incomplete
+  \item want to find \emph{only} the quasars\ldots or do we?
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{classification algorithms}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item SupportVectorMachine, RandomForest, ArtificialNeuralNet
+  \item value of a \emph{causal} model
+    \begin{itemize}
+    \item Training and test samples don't match.
+    \item Need to classify new data taken under \emph{different conditions}.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{aside: discovery as classification}
+  \begin{itemize}
+  \item found an exoplanet?
+    \begin{itemize}
+    \item That's a model selection move.
+    \item Bayes doesn't tell you how to \emph{make decisions}.
+    \end{itemize}
+  \item utility arises
+    \begin{itemize}
+    \item Make decisions that maximize expected (scientific?) return.
+    \end{itemize}
+  \item \an\ (Lang \etal) has an explicit utility model
+    \begin{itemize}
+    \item Automatic calibration of an image successful?
+    \item Our ``customer model'' is that they are offended by false positives.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{utility considerations}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item long-term future discounted free-cash flow
+  \item might be worth taking a source unlikely to be a quasar, but if it is a star, it is an \emph{interesting} star
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{over-design}
+  \begin{itemize}
+  \item \sdss\ was seriously over-designed to measure the large-scale structure
+    \begin{itemize}
+    \item (no-one thinks that was a bad idea)
+    \item we might have to be more honest going forward
+    \end{itemize}
+  \item if we want to use resources efficiently, we need to face the trade-off between efficiency and discovery
   \end{itemize}
 \end{frame}
 
@@ -206,5 +259,22 @@
   \item \hipparcos\ example
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{throwing down the gauntlet}
+  \begin{itemize}
+  \item \gaia\ uncertainty propagation (qualitative)
+  \item \euclid\ observing strategy for imaging
+  \item \lsst\ bandpass, cadence, and exposure-time settings
+  \item \project{eBOSS} two-point function estimators
+  \item \project{APOGEE} \& \project{HERMES} signal-to-noise requirements
+    \begin{itemize}
+    \item (My hourly rates are a bargain.)
+    \item (These surveys are all \emph{awesome}!)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\conclusionslide
 
 \end{document}
