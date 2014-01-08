@@ -261,13 +261,17 @@
     \item every image contains many stars
     \item Holmes \etal\ arXiv:1203.6255
     \end{itemize}
+  \item \kepler\ and \project{Spitzer} exoplanet photometry is \emph{pessimal} for self-calibration\ldots
+    \begin{itemize}
+    \item \ldots but for a very good reason!
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{target selection is classification}
   \begin{itemize}
-  \item \sdssiii\ \boss\ is taking spectra of quasars, not stars
+  \item \boss\ is taking spectra of quasars, not stars
   \item stars outnumber (relevant) quasars by factors of hundreds
   \item observations are noisy and theoretical models are incomplete
   \item want to find \emph{only} the quasars\ldots or do we?
@@ -280,10 +284,10 @@
   \item Support~Vector~Machine, Random~Forest, Artificial~Neural~Net
     \begin{itemize}
     \item all bad!
+    \item training and test samples don't match!
     \end{itemize}
   \item value of a \emph{causal} model
     \begin{itemize}
-    \item training and test samples don't match
     \item need to classify new data taken under \emph{different conditions}
     \item make use of our technical knowledge about the data.
     \item Bovy \etal\ arXiv:1011.6392
