@@ -9,6 +9,9 @@
 \setlength{\textwidth}{0.85\paperwidth}
 \usepackage{amssymb,amsmath,mathrsfs}
 
+\newcommand{\data}{\mbox{data}}
+\newcommand{\pars}{\mbox{parameters}}
+
 \title{Engineering considerations\\ for large astrophysics projects}
 \author[David W. Hogg (NYU)]{David W. Hogg \\[1ex]
   \textsl{\small Center for Cosmology and Particle Physics\\
@@ -76,6 +79,18 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{my day job}
+  \begin{itemize}
+  \item \an
+  \item \project{emcee}
+  \item precision measurement
+  \item probabilistic inference
+  \item data-driven models
+  \item exoplanets and cosmology
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{homogeneity and uniformity are impossible}
   \begin{itemize}
   \item weather
@@ -88,66 +103,136 @@
 \begin{frame}
   \frametitle{probabilistic target selection}
   \begin{itemize}
-  \item \sdssiii, \sdssiv
+  \item \sdssiii\ \boss\ quasar target selection
+  \item in \sdss\ bandpasses, z~3 quasars look like A stars
+  \item stars outnumber quasars enormously
+  \item don't have good models of \emph{either}
+    \begin{itemize}
+    \item Bovy \etal\ arXiv:1011.6392
+    \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+pictures of XDQSO
 \end{frame}
 
 \begin{frame}
   \frametitle{homogeneity and uniformity are unnecessary}
   \begin{itemize}
-  \item $1 / V_{\mathrm{max}}$
+  \item correct the data
+    \begin{itemize}
+    \item compute inverse selection ``volume'' or probabilities $1 / V_{\mathrm{max}}$ (ish)
+    \item re-weight the data using these inverse volumes
+    \item very \emph{wrong!}
+    \end{itemize}
   \item forward modeling
-  \item visualizing a forward model
+    \begin{itemize}
+    \item write down uncensored $p(\data\given\pars)$
+    \item multiply by (one minus) censoring rate $\eta(\data)$
+    \item renormalize to get expected $p(\data\given\pars)$
+    \end{itemize}
+  \item (but: visualizing a forward model)
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{estimators}
   \begin{itemize}
-  \item likelihood principles
   \item Cram\`er--Rao bound
+    \begin{itemize}
+    \item example: \gaia\ astrometry
+    \end{itemize}
+  \item likelihood principle(s)
   \item it is \emph{our duty} to analyze our \emph{very limited data} with optimal methods
+  \item the output of any data analysis must be a \emph{likelihood function}
+    \begin{itemize}
+    \item \project{WMAP}, \project{Planck}
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{target-selection pitfalls}
+  \frametitle{likelihood principle}
   \begin{itemize}
-  \item SEGUE example
+  \item I said ``function''.
+  \item $p(\data\given\pars)$
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{living the likelihood dream}
+  \begin{itemize}
+  \item don't make a catalog
+  \item produce a likelihood function in \emph{catalog space}
+    \begin{itemize}
+    \item Lang \etal\ \url{http://TheTractor.org/}
+    \item Brewer \etal\ arXiv:1211.5805
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+pictures from brewer et al
 \end{frame}
 
 \begin{frame}
   \frametitle{homogeneity and uniformity are unnecessary?}
   \begin{itemize}
   \item special case of two-point functions (and higher orders)
+  \item currently an unsolved problem
+    \begin{itemize}
+    \item (but papers from Wandelt's group)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{homogeneity and uniformity are harmful}
   \begin{itemize}
-  \item dynamic range issues
   \item can't be uniform in \emph{everything}
+    \begin{itemize}
+    \item the uniformity you choose only helps \emph{one} of your customers!
+    \end{itemize}
   \item uniform samples end up requiring a lot of time on the least useful objects
-  \item reduces heterogeneity that is essential to calibration
+  \item reduces the heterogeneity that is essential to calibration
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{self-calibration}
   \begin{itemize}
-  \item SDSS
-  \item Euclid
+  \item final imaging calibration of \sdss
+    \begin{itemize}
+    \item made \emph{no use at all} of the calibration program data
+    \item Padmanabhan \etal\ arXiv:astro-ph/0703454
+    \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+picture from Padmanabhan
 \end{frame}
 
 \begin{frame}
   \frametitle{calibration programs are wasteful}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item there are \emph{more photons} in the science data
+    \begin{itemize}
+    \item therefore, the science data contain \emph{more information about calibration}
+    \item (exceptions abound)
+    \end{itemize}
+  \item you must take your data with proper heterogeneity!
+    \begin{itemize}
+    \item \kepler
+    \item tiling patterns
+    \item Holmes \etal\ arXiv:1203.6255
+    \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+pictures from Holmes
 \end{frame}
 
 \begin{frame}
@@ -168,8 +253,13 @@
     \begin{itemize}
     \item Training and test samples don't match.
     \item Need to classify new data taken under \emph{different conditions}.
+    \item Bovy \etal\ arXiv:1011.6392
     \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+standard example from xdqso
 \end{frame}
 
 \begin{frame}
@@ -184,10 +274,11 @@
     \begin{itemize}
     \item Make decisions that maximize expected (scientific?) return.
     \end{itemize}
-  \item \an\ (Lang \etal) has an explicit utility model
+  \item \an\ has an explicit utility model
     \begin{itemize}
     \item Automatic calibration of an image successful?
     \item Our ``customer model'' is that they are offended by false positives.
+    \item Lang \etal\ arXiv:0910.2233
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -195,8 +286,19 @@
 \begin{frame}
   \frametitle{utility considerations}
   \begin{itemize}
-  \item long-term future discounted free-cash flow
-  \item might be worth taking a source unlikely to be a quasar, but if it is a star, it is an \emph{interesting} star
+  \item might be worth taking a source unlikely to be a quasar, as long as it is likely to be \emph{interesting}
+    \begin{itemize}
+    \item need to be able to make these trade-offs quantitatively
+    \item requires a specification of \emph{utility}
+    \item needs to be measured in dollars (or equivalent)
+    \item long-term future discounted free cash flow
+    \end{itemize}
+  \item the ``game'' of proposal writing
+    \begin{itemize}
+    \item we aren't honest in our proposals about what we want
+    \item \sdss\ was over-designed by any measure
+    \item that was valuable!
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -206,57 +308,89 @@
   \item \sdss\ was seriously over-designed to measure the large-scale structure
     \begin{itemize}
     \item (no-one thinks that was a bad idea)
+    \item could have done all the large-scale structure in less than one year of observing
     \item we might have to be more honest going forward
     \end{itemize}
-  \item if we want to use resources efficiently, we need to face the trade-off between efficiency and discovery
+  \item if we want to use resources efficiently, we need to face a trade-off between efficiency and discovery
+    \begin{itemize}
+    \item At the present, everything is heuristics.
+    \item I say we make this trade-off explicitly, not implicitly.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{every choice can be turned into an optimization}
+  \frametitle{utopia}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item every part of your data analysis pipeline returns a likelihood function
+    \begin{itemize}
+    \item information propagation through the pipeline always by likelihood function
+    \item implications are severe
+    \end{itemize}
+  \item you can simulate data under different experimental designs
+    \begin{itemize}
+    \item likelihood is $p(\data\given\pars)$
+    \end{itemize}
+  \item you have a specified utility function
+    \begin{itemize}
+    \item converts \emph{information} in your answer into \emph{dollars}
+    \end{itemize}
+  \item every decision can now be an optimization
+    \begin{itemize}
+    \item detectors, optical path, spectral elements
+    \item filters, exposure times, cadences
+    \item targets
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{example: bandpasses}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item \lsst\ plans to do imaging in $ugrizy$
+  \item I am going to smash that $r$ filter!
+  \item why not do $ugWizy$?
+    \begin{itemize}
+    \item easy example because zero-cost change
+    \item doesn't require \emph{full} utility specification
+    \item bet it is much better for low-$s/n$ objects
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{propagating uncertainty}
+picture of eye bandpasses
+\end{frame}
+
+\begin{frame}
+  \frametitle{hardware \foreign{vs} software trades}
   \begin{itemize}
-  \item foo
-  \item bar
+  \item \project{P1640}
+    \begin{itemize}
+    \item Oppenheimer \etal\ arXiv:1303.2627
+    \item Fergus \etal\ in prep
+    \end{itemize}
+  \item glitter cam
+    \begin{itemize}
+    \item Fergus \etal\ MIT-CSAIL-TR-2006-058
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{probabilistic outputs}
-  \begin{itemize}
-  \item foo
-  \item bar
-  \end{itemize}
+picture from P1640 here
 \end{frame}
 
 \begin{frame}
-  \frametitle{hardware \foreign{vs} software}
-  \begin{itemize}
-  \item P1640
-  \item Kepler
-  \item Spitzer
-  \end{itemize}
+picture from glitter cam here
 \end{frame}
 
 \begin{frame}
   \frametitle{open-source surveys}
   \begin{itemize}
   \item \hipparcos\ example
+  \item \sdss\ calibration example
+  \item enormous benefits accrue from making the data re-reducable from scratch
   \end{itemize}
 \end{frame}
 
@@ -266,6 +400,7 @@
   \item \gaia\ uncertainty propagation (qualitative)
   \item \euclid\ observing strategy for imaging
   \item \lsst\ bandpass, cadence, and exposure-time settings
+  \item \ska\ pathfinder image products
   \item \project{eBOSS} two-point function estimators
   \item \project{APOGEE} \& \project{HERMES} signal-to-noise requirements
     \begin{itemize}
