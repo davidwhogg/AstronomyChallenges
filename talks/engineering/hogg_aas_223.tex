@@ -110,11 +110,13 @@
     \begin{itemize}
     \item Bovy \etal\ arXiv:1011.6392
     \end{itemize}
+  \item this target selection \emph{cannot be uniform}
+    \begin{itemize}
+    \item heterogeneous data quality means heterogeneous target selection
+    \item star density varies on the sky
+    \item suck it up!
+    \end{itemize}
   \end{itemize}
-\end{frame}
-
-\begin{frame}
-pictures of XDQSO
 \end{frame}
 
 \begin{frame}
@@ -128,9 +130,10 @@ pictures of XDQSO
     \end{itemize}
   \item forward modeling
     \begin{itemize}
-    \item write down uncensored $p(\data\given\pars)$
+    \item write down uncensored $p_0(\data\given\pars)$
     \item multiply by (one minus) censoring rate $\eta(\data)$
     \item renormalize to get expected $p(\data\given\pars)$
+    \item this is a \emph{likelihood function}
     \end{itemize}
   \item (but: visualizing a forward model)
   \end{itemize}
@@ -163,7 +166,11 @@ pictures of XDQSO
 \begin{frame}
   \frametitle{living the likelihood dream}
   \begin{itemize}
-  \item don't make a catalog
+  \item don't make a catalog of objects
+    \begin{itemize}
+    \item that's some kind of (probably inefficient) estimator
+    \item even with error bars it can't transmit the full information
+    \end{itemize}
   \item produce a likelihood function in \emph{catalog space}
     \begin{itemize}
     \item Lang \etal\ \url{http://TheTractor.org/}
@@ -173,7 +180,9 @@ pictures of XDQSO
 \end{frame}
 
 \begin{frame}
-pictures from brewer et al
+  \includegraphics<1>[width=\textwidth]{brewer1.png}
+  \includegraphics<2>[height=\textheight]{brewer2.png}
+  \includegraphics<3>[width=\textwidth]{brewer3.png}
 \end{frame}
 
 \begin{frame}
@@ -270,7 +279,6 @@ pictures from Holmes
 \end{frame}
 
 \begin{frame}
-  \frametitle{XDQSO target selection {\small (Bovy \etal, 1011.6392)}}
   \includegraphics<1>[height=0.9\textheight]{xdstars.png}
   \includegraphics<2>[height=0.9\textheight]{xdqso.png}
   \includegraphics<3>[height=0.9\textheight]{xdqso_performance.png}
