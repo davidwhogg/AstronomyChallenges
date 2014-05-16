@@ -71,17 +71,19 @@
   \item Earth: light-ms, days
   \item Solar System: light-min, years
   \item Galaxy: $10^4$~lyr, $10^8$~yr
-  \item Universe: $10^10$~lyr, $10^10$~yr
+  \item Universe: $10^{10}$~lyr, $10^{10}$~yr
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{comprehensive projects}
   \begin{itemize}
-  \item position of ``every'' galaxy and quasar out to some high redshift
-  \item amplitude of ``every'' large-scale structure mode inside the visible Universe
-  \item position, velocity, and chemistry of ``every'' star in the Milky Way Galaxy
-  \item size, mass, and period of ``every'' planet in the Solar Neighborhood
+  \item \emph{the Universe is big but finite}
+  \item<2> position of ``every'' galaxy and quasar out to some high redshift
+  \item<2> amplitude of ``every'' large-scale structure mode inside the visible Universe
+  \item<2> position, velocity, and chemistry of ``every'' star in the Milky Way Galaxy
+  \item<2> size, mass, and period of ``every'' planet in the Solar Neighborhood
+  \item<3> of course, \emph{we only get photons}; nothing else
   \end{itemize}
 \end{frame}
 
@@ -100,61 +102,96 @@
     \item labels are confidently known
     \item labeled data are statistically similar to unlabeled data
     \end{itemize}
-  \item \emph{none of these is true} in astrophysics
+  \item<2> \emph{none of these is true} in astrophysics
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+\includegraphics<1>[height=\textheight]{../engineering/xdqso.png}
+\end{frame}
 
+\begin{frame}
+  ~ \hfill 1-epoch \hfill model \hfill 30-epoch
+  \includegraphics[width=0.35\textwidth,clip=]{../engineering/single_data_200_i_202_ri_gr.png}%
+  \includegraphics[width=0.35\textwidth,clip=]{../engineering/coadd_data_200_i_202_ri_gr.png}%
+  \includegraphics[width=0.35\textwidth,clip=]{../engineering/dc_fluxdist_resample_200_i_202_20_ri_gr.png}
+\end{frame}
 
 \begin{frame}
   \frametitle{physics-driven and data-driven models}
   \begin{itemize}
-  \item foo
-  \item foo
+  \item most astrophysics problems have this form:
+  \item part of the model is rigid, based on known physics
+  \item the rest (majority) is ``weather'' for which we need flexible, data-driven models
     \begin{itemize}
-    \item bar
-    \item bar
+    \item in the classification problem, the \emph{noise model} is physics driven
+    \item the \emph{quasar population model} is data-driven
     \end{itemize}
-  \item foo
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{finding tiny signals}
+  \includegraphics<1>[width=1.05\textwidth]{../engineering/p1640data.png}
+  \includegraphics<2>[width=1.05\textwidth]{../engineering/p1640detections.png}
+  \includegraphics<3>[width=1.05\textwidth]{../engineering/p1640method.png}
+  \includegraphics<4>[width=1.05\textwidth]{../engineering/p1640spectra.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{finding tiny signals---exoplanets}
   \begin{itemize}
-  \item foo
-  \item foo
+  \item let's find an Earth analog in \textsl{Kepler} data
+  \item the planet produces a \emph{tiny} imprint
     \begin{itemize}
-    \item bar
-    \item bar
+    \item a dip in brightness at the $10^{-4}$ level
+    \item ten hours long, once per year
     \end{itemize}
-  \item foo
+  \item there are many sources of noise
+    \begin{itemize}
+    \item photon shot noise ($\sqrt{N}$)
+    \item stochastic stellar variability
+    \item issues with spacecraft calibration and stability
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{finding Earth analogs}
+  \includegraphics<1>[height=\textheight]{planet_properties.pdf}
+  \includegraphics<2>[height=\textheight]{kepler-20-plm.pdf}
+  \includegraphics<3>[width=\textwidth]{kic-10593626-synth.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{finding tiny signals---cosmology}
   \begin{itemize}
-  \item foo
-  \item foo
-    \begin{itemize}
-    \item bar
-    \item bar
-    \end{itemize}
-  \item foo
+  \item weak gravitational lensing in the shapes of galaxies
+  \item baryonic acoustic feature in the variance of the galaxy density field
+  \item B-mode polarization in the cosmic microwave background
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{map--reduce or die}
+  \begin{itemize}
+  \item \textsl{``We won't even consider algorithms that can't be
+    written in the map--reduce framework.''}
+    \begin{itemize}
+    \item (Kai Li spoke to this)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{map--reduce}
+  \includegraphics[width=1.1\textwidth]{../../pgm/mapreduce.pdf}
 \end{frame}
 
 \begin{frame}
   \frametitle{map--reduce and computational scalings}
   \begin{itemize}
-  \item foo
-  \item foo
-    \begin{itemize}
-    \item bar
-    \item bar
-    \end{itemize}
-  \item foo
+  \item You can evaluate a likelihood or a gradient in map--reduce framework.
+  \item You \emph{can't} do probabilistic inference in map--reduce.
+  \item New computational frameworks will create new opportunities!
   \end{itemize}
 \end{frame}
 
@@ -164,17 +201,13 @@
   \item coronography
   \item radio interferometry
   \item probabilistic models for images
-    \begin{itemize}
-    \item bar
-    \item bar
-    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{living the likelihood dream}
   \begin{itemize}
-  \item don't make a catalog of objects
+  \item Astronomers love catalogs (unfortunately).
     \begin{itemize}
     \item that's some kind of (very inefficient) estimator
     \item even with error bars it can't transmit the full information
@@ -191,31 +224,25 @@
   \includegraphics<1>[width=1.05\textwidth]{brewer1.png}
   \includegraphics<2>[height=\textheight]{brewer2.png}
   \includegraphics<3>[width=1.05\textwidth]{brewer3.png}
+  \includegraphics<4>[width=\textwidth]{../../pgm/crowded.png}
 \end{frame}
 
 \begin{frame}
   \frametitle{spectroscopy challenges}
   \begin{itemize}
-  \item foo
-  \item foo
-    \begin{itemize}
-    \item bar
-    \item bar
-    \end{itemize}
-  \item foo
+  \item all the imaging challenges, plus:
+  \item unknown atomic and molecular physics
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{summary}
   \begin{itemize}
-  \item foo
-  \item foo
-    \begin{itemize}
-    \item bar
-    \item bar
-    \end{itemize}
-  \item foo
+  \item achievable comprehensive data-taking goals
+  \item large data sets
+  \item tiny signals
+  \item probabilistic forward modeling
+  \item mixtures of physics-driven and data-driven models
   \end{itemize}
 \end{frame}
 
