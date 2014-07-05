@@ -32,8 +32,8 @@ I am most interested in first; that is, I tend to prepend.
 
 ## Cosmic microwave background
 
-- Use spatial priors in addition to spectral-energy (wavelength or frequency dependence) priors to separate independent CMB components or layers.
-- Use parameterized pdfs in place of priors to do hierarchical inference of the fundamental cosmological signature, the secondary anisotropies, and the Galaxy.
+- Use spatial priors in addition to spectral-energy (wavelength or frequency dependence) priors to separate independent components or layers that contribute to the *Planck* (or other) imaging data.
+- Use parameterized pdfs (for spatial covariance) in place of priors to do hierarchical inference of the fundamental cosmological signature, the secondary anisotropies, and the Galaxy.
 - Try out standard unsupervised methods like ICA and so on to see if there are insights to be gleaned.
 
 ## Radio interferometry
