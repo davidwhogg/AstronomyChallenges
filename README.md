@@ -21,16 +21,20 @@ Copyright 2012, 2013, 2014 the author.  **All rights reserved.**
 ### Revision history:
 
 This document is a work in progress; it isn't even in a "first draft"
-state.  This version is dated 2012-06-06.  I generally put the thing
+state.  This version is dated 2014-07-05.  I generally put the thing
 I am most interested in first; that is, I tend to prepend.
 
 ## Three-dimensional modeling of the Milky Way
 
 - Dust modeling in three dimensions
-
 - Mass modeling with realistic models
-
 - Phase-space models in 6-d that don't rely on integrability
+
+## Cosmic microwave background
+
+- Use spatial priors in addition to spectral-energy (wavelength or frequency dependence) priors to separate independent CMB components or layers.
+- Use parameterized pdfs in place of priors to do hierarchical inference of the fundamental cosmological signature, the secondary anisotropies, and the Galaxy.
+- Try out standard unsupervised methods like ICA and so on to see if there are insights to be gleaned.
 
 ## Radio interferometry
 
