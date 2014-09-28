@@ -42,30 +42,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{examples of scale}
-  \begin{itemize}
-  \item \project{Large Synoptic Survey Telescope}: $10^{10}$ galaxies in $10^{15}$ pixels
-    \begin{itemize}
-    \item get the cosmic gravitational-lensing shear map
-    \item and then the cosmological parameters
-    \item $10^9$ stars too, all moving and varying
-    \end{itemize}
-  \item \project{Gaia}: $10^{9}$ stars in $10^{12}$ pixels
-    \begin{itemize}
-    \item infer the dynamics of the Milky Way
-    \item but also---necessarily---the distribution function of stars
-      in that potential
-    \item precision requirements are \emph{outrageous} (milli-pixel positions)
-    \end{itemize}
-  \item \project{Large Hadron Collider} instruments: taking data $10^7$ times faster than it can be moved to disk
-    \begin{itemize}
-    \item they found the Higgs! (probably)
-    \item have to make hard cuts and \emph{throw away data}
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{map--reduce or die}
   \begin{itemize}
   \item \textsl{``We won't even consider algorithms that can't be
@@ -246,15 +222,11 @@
 \begin{frame}
   \frametitle{questions}
   \begin{itemize}
-  \item Is there any (long-term) use for \emph{supervised methods}?
-    \begin{itemize}
-    \item train--test framework: random forests, deep learning
-    \item do any scientific questions fall into this category?
-    \end{itemize}
   \item Are we concerned about \emph{lossy steps} in data analysis?
     \begin{itemize}
     \item catalog generation, two-point function estimation
     \item principled approaches require likelihood functions
+    \item can we \emph{require} projects to marginalize or to saturate Cram\'er-Rao bounds?
     \end{itemize}
   \item Can we more \emph{directly compare theory} with data?
     \begin{itemize}
@@ -262,14 +234,16 @@
     \item simulations are slow; put them in the inference loop?
     \item propagation of \emph{theory} uncertainties (known unknowns)?
     \end{itemize}
-  \item Do we want to agree on \emph{principles of data analysis}?
+  \item How do we ensure \emph{flexibility of systems}?
     \begin{itemize}
-    \item requirements to saturate Cram\'er-Rao bounds?
+    \item fast evolution in hardware, methodological, and scientific contexts
+    \item usability, repeatability, adaptability
     \end{itemize}
   \item Who is going to \emph{do all this work}, and when?
     \begin{itemize}
     \item possible operations framework, or economic model?
-    \item training and promotion issues
+    \item training and promotion issues; \emph{ethical issues}
+    \item fastness
     \end{itemize}
   \end{itemize}
 \end{frame}
