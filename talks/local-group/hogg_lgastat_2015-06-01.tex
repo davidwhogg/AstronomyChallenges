@@ -38,12 +38,13 @@
     \begin{itemize}
     \item (But vastly increases the number of nuisances.)
     \end{itemize}
-  \item In 2023, if all we have is a very \emph{precise mass} for
+  \item In 2023, if all we have is a \emph{very precise mass} for
     each Local-Group member, we will have \emph{failed miserably}.
     \begin{itemize}
     \item This is not like cosmological parameter estimation!
     \item Better data must bring qualitatively new insights.
     \end{itemize}
+  \item All projects so far have just been \emph{toys}.
   \end{itemize}
 \end{frame}}
 
@@ -95,17 +96,50 @@
 \begin{frame}
   \frametitle{April Fools' {\footnotesize Bovy \etal, 0903.5308}}
   \begin{itemize}
-  \item foo
+  \item Can we learn the gravitational force law in the Solar System
+    given \emph{only a snapshot} of the planet phase-space positions?
+  \item Rough idea:
     \begin{itemize}
-    \item (plus small modifications and adjustments)
-    \item physical or effective models of star formation?
-    \item intractable likelihood function?
+    \item For a long-lived, integrable, non-resonant system, angles
+      are uniformly distributed, actions are conserved.
+    \item The action distribution matters and is completely unknown.
+    \item Model needs flexibility to discover near-circularity of the
+      orbits.
+    \item Many assumptions (sperical, power-law, time-invariant, integrable)!
     \end{itemize}
-  \item bar
+  \item Jacobians of transformations from $x,v$ to $I,\theta$
+    coordinates describe the information in the data.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{April Fools' {\footnotesize Bovy \etal, 0903.5308}}
+  ~\hfill%
+  \includegraphics<1>[height=\figureheight]{0903.5308/f5a.pdf}
+  \includegraphics<2>[height=\figureheight]{0903.5308/f5b.pdf}
+  \includegraphics<3>[height=\figureheight]{0903.5308/f5c.pdf}
+  \includegraphics<4>[height=\figureheight]{0903.5308/f5d.pdf}
+  \includegraphics<5>[height=\figureheight]{0903.5308/f5e.pdf}
+  \includegraphics<6>[height=\figureheight]{0903.5308/f5f.pdf}
+  \includegraphics<7>[height=\figureheight]{0903.5308/f5g.pdf}
+  \includegraphics<8>[height=\figureheight]{0903.5308/f5h.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{April Fools' {\footnotesize Bovy \etal, 0903.5308}}
+  \begin{itemize}
+  \item Inference of the potential $\Phi$ given phase-space postions
+    $X_n$ is possible.
+  \item Marginalization was incredibly \emph{expensive}.
     \begin{itemize}
-    \item delivering probabilistic outputs from telescopes
-    \item writing inferences with posteriors in and posteriors out
-    \item non-parametric models get huge ($N^3$-ish)
+    \item CPU-days for $N=8$ particles!
+    \end{itemize}
+  \item Some ``stars'' were \emph{far} more valuable than others.
+  \item Lessons for 2023?
+    \begin{itemize}
+    \item Computational expense daunting.
+    \item Key stars are worth finding (if they exist).
+    \item Things won't be integrable, stationary, or symmetric.
     \end{itemize}
   \end{itemize}
 \end{frame}
