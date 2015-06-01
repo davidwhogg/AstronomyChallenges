@@ -35,6 +35,7 @@
 
 %%% text commands
 \newcommand{\project}[1]{\textsl{#1}}
+  \newcommand{\apogee}{\project{APOGEE}}
   \newcommand{\an}{\project{Astrometry.net}}
   \newcommand{\tc}{\project{The~Cannon}}
   \newcommand{\euclid}{\project{Euclid}}
@@ -64,16 +65,24 @@
   \newcommand{\vs}{\latin{vs.}}
 
 %%% math-mode commands
-\newcommand{\unit}[1]{\mathrm{#1}}
-  \newcommand{\rad}{\unit{rad}}
-  \newcommand{\s}{\unit{s}}
-  \newcommand{\yr}{\unit{yr}}
-  \newcommand{\km}{\unit{km}}
-  \newcommand{\kmps}{\km\,\s^{-1}}
 \newcommand{\mmatrix}[1]{\boldsymbol{#1}}
 \newcommand{\tv}[1]{\boldsymbol{#1}}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\given}{\,|\,}
+\newcommand{\transpose}[1]{{#1}^{\mathsf{T}}}
+\newcommand{\inverse}[1]{{#1}^{-1}}
+
+%%% units
+\newcommand{\unit}[1]{\mathrm{#1}}
+\newcommand{\rad}{\unit{rad}}
+\newcommand{\s}{\unit{s}}
+\newcommand{\yr}{\unit{yr}}
+\newcommand{\km}{\unit{km}}
+\newcommand{\kmps}{\km\,\s^{-1}}
+
+%%% symbols
 \newcommand{\Teff}{T_{\mathrm{eff}}}
+\newcommand{\teff}{\Teff}
 \newcommand{\logg}{\log g}
+\newcommand{\feh}{[\mathrm{Fe}/\mathrm{H}]}
 \newcommand{\vsini}{v\,\sin i}

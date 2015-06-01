@@ -20,29 +20,39 @@
 \begin{document}
 
 \begin{frame}
+  \frametitle{policy statement}
+  \begin{itemize}
+  \item In 2023, if all we have is a \emph{very precise mass} for
+    each Local-Group member, we will have \emph{failed miserably}.
+    \begin{itemize}
+    \item This is not like cosmological parameter estimation!
+    \item Better data must bring \emph{qualitatively new insights}.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \titlepage
+  {\footnotesize work in collaboration with: \emph{Bovy}, \emph{Ness}, Price-Whelan, Rix}
 \end{frame}
 
 \newcommand{\messages}{%
 \begin{frame}
   \frametitle{messages}
   \begin{itemize}
-  \item Naively, any inference of the potential $\Phi$ given
-    phase-space coordinates $X_n$ of stars $n$ requires \emph{enormous
-      marginalizations} (or profiles).
+  \item Inference of the potential $\Phi$ given phase-space points
+    $X_n$ requires \emph{enormous marginalizations} (or profiles).
     \begin{itemize}
-    \item By ``potential'' I mean all dynamical properties as a function of space and time.
-    \item There can be a \emph{tiny subset} of the stars that is most informative.
+    \item By ``potential $\Phi$'' I mean \emph{the entire formation history}
+      of the Local Group.
+    \item There might be a \emph{tiny subset} of the stars that contains
+      \emph{almost all of the information}
     \end{itemize}
-  \item Extending $X_n$ to include more conserved ``tags'' is expected to be informative
+  \item Extending $X_n$ to include more ``tags'' (especially chemical
+    tags) is expected to be informative
     \begin{itemize}
     \item (But vastly increases the number of nuisances.)
-    \end{itemize}
-  \item In 2023, if all we have is a \emph{very precise mass} for
-    each Local-Group member, we will have \emph{failed miserably}.
-    \begin{itemize}
-    \item This is not like cosmological parameter estimation!
-    \item Better data must bring qualitatively new insights.
+    \item We aren't ready to execute this program.
     \end{itemize}
   \item All projects so far have just been \emph{toys}.
   \end{itemize}
@@ -57,13 +67,13 @@
     \begin{itemize}
     \item (plus small modifications and adjustments)
     \item physical or effective models of star formation?
-    \item intractable likelihood function?
+    \item prior and likelihood function both intractable?
     \end{itemize}
   \item data sets are vast and \emph{noisy}
     \begin{itemize}
     \item delivering probabilistic outputs from telescopes
     \item writing inferences with posteriors in and posteriors out
-    \item non-parametric models get huge ($N^{2.6}$-ish)
+    \item non-parametric models get huge ($N^{2.6}$-ish or worse)
     \end{itemize}
   \item \emph{stars} are non-trivial objects
     \begin{itemize}
@@ -87,9 +97,11 @@
     \begin{itemize}
     \item and we aren't seeing it at a special time
     \item and there are no significant resonances (stars are independent)
-    \item (these assumptions are all wrong in detail)
     \end{itemize}
   \item<2-> Then we know what to do!
+    \begin{itemize}
+    \item<3-> (too bad \emph{all of these assumptions are wrong!})
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -103,28 +115,31 @@
     \item For a long-lived, integrable, non-resonant system, angles
       are uniformly distributed, actions are conserved.
     \item The action distribution matters and is completely unknown.
-    \item Model needs flexibility to discover near-circularity of the
-      orbits.
+    \item Model needs \emph{flexibility to discover action-space structure}
     \item Many assumptions (sperical, power-law, time-invariant, integrable)!
     \end{itemize}
   \item $\displaystyle p(x,v\given\Phi) = \int p(x,v\given I,\theta,\Phi)\,p(I\given\alpha)\,p(\theta)\,\dd I\,\dd\theta\,\dd\alpha$
-  \item Jacobians of transformations from $x,v$ to $I,\theta$
-    coordinates describe the information in the data.
+    \begin{itemize}
+    \item $p(x,v\given I,\theta,\Phi)$ is really a transformation
+    \item $\alpha$ is \emph{HUGE}
+    \item Jacobian of transformation from $x,v$ to $I,\theta$
+      coordinates describes the information in the data.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{April Fools' {\footnotesize Bovy \etal, 0903.5308}}
   ~\hfill%
-  \includegraphics<1>[height=\figureheight]{0903.5308/f5a.pdf}
-  \includegraphics<2>[height=\figureheight]{0903.5308/f5b.pdf}
-  \includegraphics<3>[height=\figureheight]{0903.5308/f5c.pdf}
-  \includegraphics<4>[height=\figureheight]{0903.5308/f5d.pdf}
-  \includegraphics<5>[height=\figureheight]{0903.5308/f5e.pdf}
-  \includegraphics<6>[height=\figureheight]{0903.5308/f5f.pdf}
-  \includegraphics<7>[height=\figureheight]{0903.5308/f5g.pdf}
-  \includegraphics<8>[height=\figureheight]{0903.5308/f5h.pdf}
-  \includegraphics<9>[height=\figureheight]{0903.5308/f7.pdf}
+  \includegraphics<1>[height=\figureheight]{./0903.5308/f5a.pdf}
+  \includegraphics<2>[height=\figureheight]{./0903.5308/f5b.pdf}
+  \includegraphics<3>[height=\figureheight]{./0903.5308/f5c.pdf}
+  \includegraphics<4>[height=\figureheight]{./0903.5308/f5d.pdf}
+  \includegraphics<5>[height=\figureheight]{./0903.5308/f5e.pdf}
+  \includegraphics<6>[height=\figureheight]{./0903.5308/f5f.pdf}
+  \includegraphics<7>[height=\figureheight]{./0903.5308/f5g.pdf}
+  \includegraphics<8>[height=\figureheight]{./0903.5308/f5h.pdf}
+  \includegraphics<9>[height=\figureheight]{./0903.5308/f7.pdf}
 \end{frame}
 
 \begin{frame}
@@ -134,6 +149,7 @@
     $X_n$ is possible.
   \item Marginalization was incredibly \emph{expensive}.
     \begin{itemize}
+    \item $\alpha$ is \emph{huge}
     \item CPU-days for $N=8$ particles!
     \end{itemize}
   \item Some ``stars'' were \emph{far} more valuable than others.
@@ -141,8 +157,24 @@
     \begin{itemize}
     \item Computational expense daunting.
     \item Key stars are worth finding (if they exist).
-    \item Things won't be integrable, stationary, or symmetric.
+    \item Things \emph{won't be integrable, stationary, or symmetric}.
     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{extended distribution functions}
+  \begin{itemize}
+  \item stellar orbital actions are conserved ``tags'' on stars.
+    \begin{itemize}
+    \item (Only if the potential is \emph{integrable}, which it isn't!)
+    \end{itemize}
+  \item so are stellar ``birth dates''
+  \item surface (birth-environment) abundances (maybe 30-dimensional?)
+    \begin{itemize}
+    \item (But no-one has ever demonstrated this.)
+    \end{itemize}
+  \item Naively these birth indicators must be exceedingly informative, if we can measure them.
   \end{itemize}
 \end{frame}
 
@@ -152,7 +184,7 @@
   \item there is \emph{no hope} of good, consistent point-estimates of
     chemical abundances
     \begin{itemize}
-    \item (not for 2023, anyway)
+    \item (not for 2023, anyway, and not good enough for ``tagging'')
     \item prove me wrong!
     \item (and keep working; this is God's work)
     \end{itemize}
@@ -169,35 +201,85 @@
 \begin{frame}
   \frametitle{\tc~{\footnotesize Ness \etal, 1501.07604}}
   \begin{itemize}
-  \item foo
+  \item data-driven model of stellar spectra
     \begin{itemize}
-    \item (plus small modifications and adjustments)
-    \item physical or effective models of star formation?
-    \item intractable likelihood function?
+    \item stellar parameter estimation and chemical abundances
+    \item get different data sets onto the same ``system'' 
+    \item capitalize on enormous data sets (\apogee\ demo)
     \end{itemize}
-  \item bar
+  \item train-and-test framework
     \begin{itemize}
-    \item delivering probabilistic outputs from telescopes
-    \item writing inferences with posteriors in and posteriors out
-    \item non-parametric models get huge ($N^3$-ish)
+    \item trained on cluster stars will well understood chemical abundances
+    \item (not large enough) range of $\Teff$ and $\logg$ and chemistry
+    \item \emph{but contains a realistic spectral noise model}
+    \end{itemize}
+  \item designed for computational tractability
+    \begin{itemize}
+    \item fast
+    \item generalizable and extensible
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\newcommand{\flux}{f}
+\newcommand{\fluxes}{\boldsymbol{\flux}}
+\newcommand{\labels}{\boldsymbol{\ell}}
+\newcommand{\pars}{\boldsymbol{\theta}}
+
+\begin{frame}
+  \frametitle{\tc~{\footnotesize Ness \etal, 1501.07604}}
+  \begin{eqnarray}
+    \ln p(\fluxes_n\given\labels_n,\pars) &=& \sum_{\lambda=1}^L \ln p(\flux_{\lambda n}\given\labels_n,\pars_\lambda,s^2_\lambda)
+    \nonumber \\
+    \ln p(\flux_{\lambda n}\given\labels_n,\pars_\lambda,s^2_\lambda) &=& -\frac{1}{2}\,\frac{[f_{\lambda n} - \transpose{\pars_\lambda}\cdot\labels_n]^2}{\sigma^2_{\lambda n} + s^2_\lambda} + \ln (\sigma^2_{\lambda n} + s^2_\lambda)
+    \nonumber \\
+    \transpose{\labels} &\equiv& \left\{1, \teff, \logg, \feh, \teff^2, \teff\,\logg, \cdots, \feh^2\right\}
+    \nonumber \\
+    \transpose{\pars} &\equiv& \left\{\pars_\lambda, s^2_\lambda\right\}_{\lambda=1}^L
+    \nonumber
+  \end{eqnarray}
+  \vspace{-2ex}
+  \begin{itemize}
+  \item \emph{training step}: optimize parameters $\pars$ at fixed labels
+    $\labels$ using training-set data
+    \begin{itemize}
+    \item linear least squares
+    \item every wavelength $\lambda$ treated independently
+    \end{itemize}
+  \item \emph{test step}: optimize labels $\labels$ at fixed
+    parameters $\pars$ using test-set (survey) data
+    \begin{itemize}
+    \item non-linear optimization
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{\tc~{\footnotesize Ness \etal, 1501.07604}}
+  ~\hfill%
+  \includegraphics<1>[height=\figureheight]{./1501.07604/four_examples3.pdf}
+  \includegraphics<2>[height=\figureheight]{./1501.07604/training_mkn3.png}
+  \includegraphics<3>[height=\figureheight]{./1501.07604/takeout_histc.png}
+  \includegraphics<4>[height=\figureheight]{./1501.07604/R1_continuum5.png}
+  \includegraphics<5>[height=\figureheight]{./1501.07604/cplot2.png} 
+  \includegraphics<6>[height=\figureheight]{./1501.07604/iso2_2.png}
+  \includegraphics<7>[height=\figureheight]{./1501.07604/iso2a_2.png}
+  \includegraphics<8>[height=\figureheight]{./1501.07604/2dwarfs.png}
+  \includegraphics<9>[height=\figureheight]{./1501.07604/SNR100to200.png}
+  \includegraphics<10>[height=\figureheight]{./1501.07604/SNR30to50.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tc~{\footnotesize Ness \etal, 1501.07604}}
   \begin{itemize}
-  \item foo
+  \item We can transfer labels from a training set to all \apogee\ data.
+  \item Our labels are as accurate as those based on physical models.
+  \item The system is still a \emph{toy}; we need to:
     \begin{itemize}
-    \item (plus small modifications and adjustments)
-    \item physical or effective models of star formation?
-    \item intractable likelihood function?
-    \end{itemize}
-  \item bar
-    \begin{itemize}
-    \item delivering probabilistic outputs from telescopes
-    \item writing inferences with posteriors in and posteriors out
-    \item non-parametric models get huge ($N^3$-ish)
+    \item demonstrate that we can go beyond $\feh$
+    \item generalize to simultaneous fitting of training and test data
+    \item generalize to \emph{simultaneous fitting of stellar kinematics and spectra}
+    \item (and the ISM)
     \end{itemize}
   \end{itemize}
 \end{frame}
