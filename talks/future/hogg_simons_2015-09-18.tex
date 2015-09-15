@@ -1,0 +1,167 @@
+% Copyright 2012 David W. Hogg (NYU).  All rights reserved.
+
+\documentclass[pdftex]{beamer}
+\setlength{\paperheight}{2.5in}
+% 1.77778 is the ratio of 16 to 9
+\setlength{\paperwidth}{1.77778\paperheight}
+\setlength{\textwidth}{0.85\paperwidth}
+\setlength{\textheight}{0.95\paperheight}
+\input{./hogg_presentation} % hogg standard colors
+\usepackage{amssymb,amsmath,mathrsfs}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{The paradox of data analysis}
+  \begin{itemize}
+  \item We compute the hell out of many problems:
+    \begin{itemize}
+    \item large-scale structure
+    \item galaxies
+    \item stars
+    \end{itemize}
+  \item We compare these to the data completely \emph{heuristically!}
+    \begin{itemize}
+    \item presume certain statistics are sufficient, or
+    \item try to get the distributions right but not the individuals, or
+    \item make up a wrong or substitute likelihood function
+    \end{itemize}
+  \item And yet \emph{we know how to propagate information}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Saturating information bounds}
+  \begin{itemize}
+  \item In many cases we can compute how well---in principle---we ought to be able to
+    measure some quantity, given the data we have.
+  \item To saturate bounds, we require a likelihood:
+    \begin{itemize}
+    \item to build efficient estimators
+    \item to update beliefs
+    \end{itemize}
+  \item Or we must find a way to obtain a posterior pdf:
+    \begin{itemize}
+    \item (there are methods that don't require an explicit likelihood function)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cosmology}
+  \begin{itemize}
+  \item (eg,) The standard likelihood function utilized in large-scale
+    structure studies is \emph{not even an approximation} to any justifiable
+    likelihood function.
+    \begin{itemize}
+    \item it has support in non-positive-definite realms
+    \item the likelihood for the variance of a Gaussian isn't itself Gaussian!
+    \end{itemize}
+  \item New approaches built on direct simulation of the volume look promising.
+    \begin{itemize}
+    \item might require running (literally) millions of simulations.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Milky Way}
+  \begin{itemize}
+  \item Actions and angles are beautiful things.
+    \begin{itemize}
+    \item the Milky Way can't be integrable
+    \item observational noise must be marginalized out
+    \end{itemize}
+  \item The Milky Way has to form from sensible initial conditions
+    within the physical cosmological model.
+    \begin{itemize}
+    \item at near-future observational capabilities, this \emph{one galaxy
+      alone} may provide more cosmological and dark-matter constraints than the entire
+      rest of the Hubble Volume
+    \item exploitation probably requires something like ``constrained
+      realization'' on steroids.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stars}
+  \begin{itemize}
+  \item Soon we will have $10^6$ stars, each observed at $S/N\sim 100$
+    in each of $10^4$ pixels (or time points).
+    \begin{itemize}
+    \item and yet we can't get parameters and abundances better than 0.1 or 0.2~dex!
+    \end{itemize}
+  \item Physical models are exceedingly computationally expensive.
+    \begin{itemize}
+    \item we are developing hybrid data-driven and physics-driven models
+    \item the \emph{computer itself} must elaborate and refine the
+      physical inputs and approximations in the models
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exoplanets}
+  \begin{itemize}
+  \item We know how to find exoplanets.
+    \begin{itemize}
+    \item we have found thousands
+    \item many systems have complex architectures
+    \end{itemize}
+  \item We don't even know how to \emph{parameterize} the systems.
+    \begin{itemize}
+    \item how do you construct a pdf over qualitatively different
+      kinds of systems?
+    \item systems differ in multiplicity of the host star and of the
+      planetary system, and of the hierarchical structure
+    \item this is a problem for theory too!
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The role of a Simons Center}
+  \begin{itemize}
+  \item Data analysis---at its best---is \emph{theory meets hardware}
+  \item There is a huge role for applied mathematics.
+    \begin{itemize}
+    \item all futures involve simulations \emph{inside} the
+      data-analysis loop
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The role of a Simons Center}
+  \begin{itemize}
+  \item Simons could support personnel that aren't well supported in the University:
+    \begin{itemize}
+    \item applied math and software engineering support
+    \item tool-building and maintenance groups
+    \item no need to respect traditional academic silos
+    \end{itemize}
+  \item Students play critical roles.
+    \begin{itemize}
+    \item the Center could partner with a University to bring in
+      PhD candidates and projects
+    \item or run a predoctoral program for year-length student collaborations
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The role of a Simons Center}
+  \begin{itemize}
+  \item Partnership in big projects is a good idea.
+    \begin{itemize}
+    \item the biggest data analysis challenges are brought by the biggest projects
+    \item direct involvement ensures that Center accomplishments feed new discoveries
+    \item best data analyses are usually performed by those with the dirtiest hands
+    \end{itemize}
+  \item Simons can participate in projects with more flexibility about
+    time-scales than other players.
+  \end{itemize}
+\end{frame}
+
+\end{document}
