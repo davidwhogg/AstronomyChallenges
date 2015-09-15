@@ -4,7 +4,7 @@ PDFLATEX = pdflatex
 
 all: hogg_simons_2015-09-18.pdf
 
-%.pdf: %.tex
+%.pdf: %.tex hogg_presentation.tex
 	$(PDFLATEX) $*
 
 clean:
