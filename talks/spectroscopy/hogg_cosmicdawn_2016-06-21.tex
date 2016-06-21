@@ -113,7 +113,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Data are wrong!}
+  \frametitle{Combining spectroscopy and photometry}
   \begin{itemize}
   \item \textit{``I have both spectroscopy and photometry of my sources, and I
     want to fit models. There are so many more pixels in the
@@ -125,15 +125,16 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Data are wrong!}
+  \frametitle{Combining spectroscopy and photometry}
+  {\footnotesize
   $$\ln p(D\given\theta)
      = -\frac{1}{2}\,\underbrace{\sum_{i} \frac{[D_i - M_i(\theta)]^2}{\sigma_i^2}}_{\mbox{photometry}}
        -\frac{1}{2}\,\underbrace{\sum_{j} \frac{[D_j - M_j(\theta)]^2}{\sigma_j^2}}_{\mbox{spectroscopy}}
-  $$
+  $$}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Data are wrong!}
+  \frametitle{Combining spectroscopy and photometry}
   \begin{itemize}
   \item Why do we want to upweight the photometry and downweight the spectroscopy?
     \begin{itemize}
@@ -148,46 +149,95 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Data are wrong!}
+  \frametitle{Combining spectroscopy and photometry}
+  {\footnotesize
   $$\ln p(D\given\theta,\alpha)
      = -\frac{1}{2}\,\underbrace{\sum_{i} \frac{[D_i - M_i(\theta)]^2}{\sigma_i^2}}_{\mbox{photometry}}
        -\frac{1}{2}\,\underbrace{\sum_{j} \frac{[D_j - M_j(\theta,\alpha)]^2}{\sigma_j^2}}_{\mbox{spectroscopy}}
-  $$ $$
+  $$} $$
     p(D\given\theta) = \int p(D\given\theta,\alpha)\,p(\alpha)\,\dd\alpha
   $$
 \end{frame}
 
-\begin{frame}
-  \frametitle{Data are wrong!}
-  \includegraphics[width=\figurewidth]{}
-\end{frame}
+\newcommand{\fullframe}[1]{{%
+      \setbeamertemplate{navigation symbols}{}%
+      \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{#1}}%
+      \begin{frame}[plain]\end{frame}}}
+\fullframe{./forHogg.png}
+\fullframe{./forHogg1.png}
+\fullframe{./forHogg2.png}
 
 \begin{frame}
-  \frametitle{..}
+  \frametitle{Combining spectroscopy and photometry {\footnotesize (Johnson \etal, in prep)}}
   \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
+  \item The flexible calibration vector marginalization effectively down-weights the ``shape'' of the spectrum.
+  \item The procedure obviates spectrophotometric calibration!
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{..}
+  \frametitle{Models are wrong---Approaches}
   \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
+  \item Use no model: Data-driven
+  \item Use every model ever made!
+  \item Hybrid approaches
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data-driven models (my personal usage)}
+  \begin{itemize}
+  \item Make use of things you \emph{strongly believe}:
+    \begin{itemize}
+    \item noise model \& instrument resolution
+    \item causal structure (shared parameters)
+    \end{itemize}
+  \item Capitalize on huge amounts of data.
+  \item Use an exceedingly flexible model.
+  \item (Concepts of train, validate, and test.)
+  \item (Every situation will be \emph{bespoke}.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tc: label transfer for stars}
+  \begin{itemize}
+  \item A few of your stars have good labels (from somewhere).
+  \item Can you use this to label the other stars?
+  \item Why would you want to do this?
+    \begin{itemize}
+    \item<2> you don't have good models at your wavelengths?
+    \item<2> you want two surveys to be on the same ``system''?
+    \item<2> you have some stars at high SNR, some at low SNR?
+    \item<2> you spent human time on some stars but can't on all?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
+  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/training_aspcap2.pdf}
+         \includegraphics<2>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/training_mkn2.pdf}
+\end{frame}
+
+\newcommand{\flux}{f}
+\newcommand{\fluxes}{\boldsymbol{\flux}}
+\newcommand{\labels}{\boldsymbol{\ell}}
+\newcommand{\pars}{\boldsymbol{\theta}}
+
+\begin{frame}
+  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
+  \,\hfill\includegraphics<1>[width=\figurewidth]{/Users/hogg/TheCannon/presentations/data_model_cyan.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
+  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/R1_continuum5.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
+  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/takeout_histc.png}
 \end{frame}
 
 \begin{frame}
