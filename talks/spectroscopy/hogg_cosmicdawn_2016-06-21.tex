@@ -1,0 +1,419 @@
+% to-do:
+% ------
+% - merge in population results
+% - discuss limitations of everything we are doing
+
+\documentclass[pdftex]{beamer}
+%\input{vc}
+
+% set paper size
+% 1.77778 is the ratio of 16 to 9
+%\setlength{\paperheight}{2.75in} % going small!
+%\setlength{\paperwidth}{1.77778\paperheight}
+% 1.33333 is the ratio of 4 to 3
+\setlength{\paperheight}{3.0in} % way small!
+\setlength{\paperwidth}{1.33333\paperheight}
+
+% set lengths given paper
+\setlength{\textheight}{0.95\paperheight}
+\setlength{\textwidth}{0.85\paperwidth}
+
+% import the next thing *after* the lengths and sizes
+\input{./hogg_presentation} % hogg standard colors
+\setbeamertemplate{footline}{David W. Hogg / 2015-06-21}
+
+\title{Statistical techniques}
+\author[David W. Hogg (NYU)]{David W. Hogg\\[1ex] {\small \textsl{(SCDA \& NYU \& MPIA)}}}
+\date{Cosmic Dawn of Galaxy Formation / 2016 June 21}
+
+\newcommand{\conclusions}{%
+\begin{frame}
+  \frametitle{Summary}
+  \begin{itemize}
+  \item what
+  \item ever
+  \end{itemize}
+\end{frame}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\conclusions
+
+\begin{frame}
+  \frametitle{This talk will not be a review!}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Church of Bayes}
+  \begin{itemize}
+  \item A model is a \emph{likelihood function} and \emph{priors over nuisance parameters}.
+    \begin{itemize}
+    \item $p(D\given\theta,\alpha)$
+    \item $p(\alpha)$
+    \end{itemize}
+  \item If you want to perform MCMC, you need priors over everything.
+    \begin{itemize}
+    \item $p(\theta)$ too
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Likelihood function}
+  \begin{itemize}
+  \item The point of Bayes is to produce likelihood functions!
+    \begin{itemize}
+    \item The likelihood is the thing that updates beliefs.
+    \end{itemize}
+  \item This is true for both observers and theorists.
+  \item Likelihood functions are technically \emph{subjective}.
+    \begin{itemize}
+    \item They involve decisions.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pragmatism}
+  \begin{itemize}
+  \item You can't make a measurement without a model.
+    \begin{itemize}
+    \item $p(D\given\theta,\alpha)$ and $p(\alpha)$
+    \end{itemize}
+  \item However, often we can't afford to live the dream.
+    \begin{itemize}
+    \item All other methods for making measurements can be seen as
+      approximations to Bayes.
+    \item (for example: estimate and uncertainty)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Very important high-redshift science!}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paradox of astrophysics}
+  \begin{itemize}
+  \item The big secret of astronomy:
+  \item<2-> All models are wrong!
+    \begin{itemize}
+    \item (strongly ruled out by the data)
+    \end{itemize}
+  \item<3> All data are wrong!
+    \begin{itemize}
+    \item (systematics and selections)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data are wrong!}
+  \begin{itemize}
+  \item \textit{``I have both spectroscopy and photometry of my sources, and I
+    want to fit models. There are so many more pixels in the
+    spectroscopy than the photometry, if I just multiply the
+    likelihoods, the spectroscopy dominates, the photometry is
+    ignored, and I get wrong answers!''} \\ ~\hfill --- Many
+    astronomers
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data are wrong!}
+  $$\ln p(D\given\theta)
+     = -\frac{1}{2}\,\underbrace{\sum_{i} \frac{[D_i - M_i(\theta)]^2}{\sigma_i^2}}_{\mbox{photometry}}
+       -\frac{1}{2}\,\underbrace{\sum_{j} \frac{[D_j - M_j(\theta)]^2}{\sigma_j^2}}_{\mbox{spectroscopy}}
+  $$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data are wrong!}
+  \begin{itemize}
+  \item Why do we want to upweight the photometry and downweight the spectroscopy?
+    \begin{itemize}
+    \item Because we don't believe the calibration of the spectroscopy.
+    \item Sky subtraction, unaccounted noise sources.
+    \end{itemize}
+  \item The right thing to do is to \emph{marginalize out the calibration} and etc.
+    \begin{itemize}
+    \item No reweighting is permitted!
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data are wrong!}
+  $$\ln p(D\given\theta,\alpha)
+     = -\frac{1}{2}\,\underbrace{\sum_{i} \frac{[D_i - M_i(\theta)]^2}{\sigma_i^2}}_{\mbox{photometry}}
+       -\frac{1}{2}\,\underbrace{\sum_{j} \frac{[D_j - M_j(\theta,\alpha)]^2}{\sigma_j^2}}_{\mbox{spectroscopy}}
+  $$ $$
+    p(D\given\theta) = \int p(D\given\theta,\alpha)\,p(\alpha)\,\dd\alpha
+  $$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data are wrong!}
+  \includegraphics[width=\figurewidth]{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{..}
+  \begin{itemize}
+  \item ..
+    \begin{itemize}
+    \item ..
+    \item ..
+    \end{itemize}
+  \item ..
+  \item ..
+  \item ..
+  \end{itemize}
+\end{frame}
+
+\conclusions
+
+\end{document}
