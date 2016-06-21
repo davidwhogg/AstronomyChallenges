@@ -24,14 +24,16 @@
 
 \title{Statistical techniques}
 \author[David W. Hogg (NYU)]{David W. Hogg\\[1ex] {\small \textsl{(SCDA \& NYU \& MPIA)}}}
-\date{Cosmic Dawn of Galaxy Formation / 2016 June 21}
+\date{Cosmic Dawn / 2016 June 21}
 
 \newcommand{\conclusions}{%
 \begin{frame}
   \frametitle{Summary}
   \begin{itemize}
-  \item what
-  \item ever
+  \item This talk is not a review talk!
+  \item Use very flexible models to marginalize out calibration issues.
+  \item Use data-driven models when you don't believe the physical models.
+  \item Use Bayes to mix together competing models.
   \end{itemize}
 \end{frame}}
 
@@ -42,10 +44,6 @@
 \end{frame}
 
 \conclusions
-
-\begin{frame}
-  \frametitle{This talk will not be a review!}
-\end{frame}
 
 \begin{frame}
   \frametitle{Church of Bayes}
@@ -94,7 +92,19 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Very important high-redshift science!}
+  \frametitle{Very important high-redshift science?}
+  \begin{itemize}
+  \item<1> \textit{Trigger warning:} self-aggrandizement
+  \item<2-> Around 1995, with Judy Cohen I had the high-redshift record
+    for a normal galaxy (something like $z=0.8$), \emph{but\ldots}
+  \item<2-> In 1996, Roger Blandford and I wrote a paper called
+    ``Gravitational Telescopes'', \emph{but\ldots}
+  \item<2-> In 1996--1998 with Smail and Cohen I had the deepest
+    (faintest) galaxy counts in the $U$ and $R$ bands, and (in 2000)
+    at 3 microns \emph{but\ldots}
+  \item<3> Lesson learned: In the high-redshift business, don't rest on
+    your laurels!
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -171,9 +181,11 @@
   \frametitle{Combining spectroscopy and photometry {\footnotesize (Johnson \etal, in prep)}}
   \begin{itemize}
   \item The flexible calibration vector marginalization effectively down-weights the ``shape'' of the spectrum.
-  \item The procedure obviates spectrophotometric calibration!
+  \item The procedure \emph{obviates spectrophotometric calibration!}
   \end{itemize}
 \end{frame}
+
+\conclusions
 
 \begin{frame}
   \frametitle{Models are wrong---Approaches}
@@ -214,253 +226,104 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
-  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/training_aspcap2.pdf}
-         \includegraphics<2>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/training_mkn2.pdf}
-\end{frame}
-
 \newcommand{\flux}{f}
 \newcommand{\fluxes}{\boldsymbol{\flux}}
 \newcommand{\labels}{\boldsymbol{\ell}}
 \newcommand{\pars}{\boldsymbol{\theta}}
 
 \begin{frame}
-  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
-  \,\hfill\includegraphics<1>[width=\figurewidth]{/Users/hogg/TheCannon/presentations/data_model_cyan.png}
-\end{frame}
-
-\begin{frame}
-  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
-  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/R1_continuum5.png}
-\end{frame}
-
-\begin{frame}
-  \frametitle{\tc\ {\footnotesize (Ness \etal 1501.07604)}}
-  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/takeout_histc.png}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
+  \frametitle{\tc: model}
   \begin{itemize}
-  \item ..
+  \item $\ln p(\fluxes_n\given\labels_n,\pars)$
+  \item \emph{training step}: optimize w.r.t.\ parameters $\pars$ at fixed labels
+    $\labels$ using training-set data
     \begin{itemize}
-    \item ..
-    \item ..
+    \item linear least squares
+    \item every wavelength $\lambda$ treated independently
     \end{itemize}
-  \item ..
-  \item ..
-  \item ..
+  \item \emph{test step}: optimize w.r.t.\ labels $\labels$ at fixed
+    parameters $\pars$ using test-set (survey) data
+    \begin{itemize}
+    \item non-linear optimization
+    \item every star treated independently
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{..}
+  \frametitle{\tc\ {\footnotesize (Ness \etal, 1501.07604)}}
+  \,\hfill\includegraphics<1>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/training_aspcap2.pdf}
+          \includegraphics<2>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/training_mkn2.pdf}
+          \includegraphics<3>[height=\figureheight]{/Users/hogg/TheCannon/documents/paper1/plots/takeout_histc.png}
+          \includegraphics<4>[width=\figurewidth]{/Users/hogg/TheCannon/presentations/data_model_cyan.png}
+          \includegraphics<5>[width=\figurewidth]{/Users/hogg/TheCannon/documents/paper1/plots/R1_continuum5.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tc~2: {\footnotesize (Casey \etal, 1603.03040)}}
+  \,\hfill\includegraphics<1>[                  width=\figurewidth]{regularized-model-validation.png}%
+          \includegraphics<2>[trim=0 0 0 3.0in, width=\figurewidth]{regularized-model-validation.png}%
+          \includegraphics<3>[trim=0 0 0 6.0in, width=\figurewidth]{regularized-model-validation.png}%
+          \includegraphics<4>[trim=0 0 0 9.0in, width=\figurewidth]{regularized-model-validation.png}%
+          \includegraphics<5>[                  width=0.5\figurewidth]{M15_comparison.png}%
+          \includegraphics<6>[trim=0 0 0 4.0in, width=0.5\figurewidth]{M15_comparison.png}%
+          \includegraphics<7>[trim=0 0 0 8.0in, width=0.5\figurewidth]{M15_comparison.png}%
+          \includegraphics<8>[trim=0 0 0 12.in, width=0.5\figurewidth]{M15_comparison.png}%
+          \includegraphics<9>[width=\figurewidth]{sparse-first-order-coefficients.png}%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data-driven models}
   \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
+  \item Huge successes (\eg, accuracy, precision, adoption of \tc).
+  \item Rarely will you meet the \emph{training-data requirements}.
+  \item Their output can be \emph{hard to interpret}
+  \end{itemize}
+\end{frame}
+
+\conclusions
+
+\begin{frame}
+  \frametitle{How to decide among different models?}
+  \begin{itemize}
+  \item Different spectral template sets are different and give different answers!
+  \item \emph{Don't decide.}
+  \item Throw all models in, let Hierarchical Bayes sort them out.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{..}
+  \frametitle{How to decide among different models?}
   \begin{itemize}
-  \item ..
+  \item Every model template gets an adjustable prior probability!
+  \item Learn the prior for every template \emph{and} the posterior template for every star.
+  \item Bayes goes for \emph{parsimony}.
     \begin{itemize}
-    \item ..
-    \item ..
+    \item the \emph{data decide} which models to keep
+    \item we did this in the star--galaxy separation context
+    \item (Fadely \etal, 1206.4306)
     \end{itemize}
-  \item ..
-  \item ..
-  \item ..
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
+  \frametitle{Star--galaxy separation {\footnotesize (Fadely \etal, 1206.4306)}}
+  \,\hfill\includegraphics<1>[height=\figureheight]{./fig2.pdf}
+          \includegraphics<2>[height=\figureheight]{./fig8.pdf}
+          \includegraphics<3>[height=\figureheight]{./fig9.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{..}
+  \frametitle{All models are wrong!}
   \begin{itemize}
-  \item ..
+  \item What is the future?
+  \item It is the \emph{combination of these ideas}:
     \begin{itemize}
-    \item ..
-    \item ..
+    \item Hierarchical Bayes will \emph{trim the list of models} to the models that work well.
+    \item Data-driven models will capture the \emph{information in the residuals}.
+    \item Something very flexible will be used to \emph{marginalize out calibration issues}.
     \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{..}
-  \begin{itemize}
-  \item ..
-    \begin{itemize}
-    \item ..
-    \item ..
-    \end{itemize}
-  \item ..
-  \item ..
-  \item ..
+  \item None of this obviates \emph{building better physical models}!
   \end{itemize}
 \end{frame}
 
