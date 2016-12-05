@@ -1,0 +1,185 @@
+% Copyright 2016 David W. Hogg (NYU).  All rights reserved.
+
+\documentclass[pdftex]{beamer}
+\input{./hogg_presentation} % hogg standard colors
+\setlength{\paperheight}{3.5in}
+% 1.77778 is the ratio of 16 to 9
+% 1.33333 is the ratio of 16 to 9
+\setlength{\paperwidth}{1.77778\paperheight}
+\setlength{\textwidth}{0.85\paperwidth}
+\usepackage{amssymb,amsmath,mathrsfs}
+
+\newcommand{\data}{\mbox{data}}
+\newcommand{\pars}{\mbox{parameters}}
+
+\title{Radical ideas in self-calibration}
+\author[David W. Hogg (NYU)]{David W. Hogg \\[1ex]
+  \textsl{\small Center for Cosmology and Particle Physics\\
+                 Department of Physics\\
+                 New York University\\[1ex]
+                 Center for Data Science\\
+                 New York University}}
+\date{NG NEXT / 2016 December 5}
+
+\newcommand{\conclusionslide}{
+\begin{frame}
+  \frametitle{punchlines}
+  \begin{itemize}
+  \item traditional calibration programs are wasteful and \emph{reduce the accuracy} of your end-of-mission results.
+  \item \emph{consistency of the data} provides an almost-complete calibration.
+  \item we exploit \emph{causal structure} to generate multiple modalities of consistency.
+  \end{itemize}
+\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\conclusionslide
+
+\begin{frame}
+  \frametitle{Traditional calibration}
+  \begin{itemize}
+  \item intersperse calibration (standard-star) observations within the sequence of science observations
+  \item set parameters to minimize variance across calibrator observations
+  \item apply those same parameters to the science observations
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{``Traditional'' self-calibration}
+  \begin{itemize}
+  \item (what we did in the \project{Sloan Digital Sky Survey})
+  \item each star is observed many times, in many different detector positions
+  \item set parameters to minimize covariance of stellar brightness with detector position
+  \item obviates calibration standards
+  \item (requires data redundancy)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Advantages of self-calibration}
+  \begin{itemize}
+  \item reduces overheads
+  \item calibration information comes from observing in science ``modes''
+  \item requires no extrapolation or interpolation
+  \item (works better \emph{in practice})
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Point-spread function}
+  \begin{itemize}
+  \item each detector position is illuminated many times, by many different stars
+  \item set parameters to minimize covariance of data residuals with illuminating star
+  \item (this has been the approach for decades)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time-domain astrophysics}
+  \begin{itemize}
+  \item in (for example) \textsl{Kepler}, measure brightness vs time over long times
+  \item what is due to spacecraft, what is due to stellar variability?
+  \item what you can predict about one star from other stars must be spacecraft
+  \item (limit of large data)
+  \item (nonlinear predictions)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Image differencing}
+  \begin{itemize}
+  \item what you can predict about one pixel from other pixels must be spacecraft
+  \item (microlensing discoveries)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Radial-velocity measurements}
+  \begin{itemize}
+  \item tens to thousands of epochs of spectroscopy at $R=115,000$, $\mathrm{SNR}>100$.
+  \item different exposures should differ \emph{only} by radial velocity
+  \item if there are spectral shape variations with radial velocity, we can do better
+  \item (note causal argument)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Binary star radial-velocity measurements}
+  \begin{itemize}
+  \item if we can see two stars in the spectrum, each star can velocity-calibrate the other
+  \item the most important exoplanets might be in binary-star systems
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pixel-level flat-fields}
+  \begin{itemize}
+  \item telescope images are produced by a ``true scene'' convolved by the point-spread function
+  \item any image can be modeled as a mixture of PSFs
+  \item deviations consistent in detector coordinates must be flat-field issues
+  \item (note causal argument)
+  \item (doesn't require any data redundancy, in principle)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sub-pixel flat-fields}
+  \begin{itemize}
+  \item every pixel has a unique shape
+  \item with enough data, this can be inferred also
+  \item concept of a flat-field multipole expansion
+  \item (much easier with certain kinds of redundancy)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Photometric redshifts}
+  \begin{itemize}
+  \item galaxy spectra live in some nonlinear subspace
+  \item every galaxy ever observed, photometrically, constrains that subspace
+  \item (photometric measurements are noisy projections of the spectrum)
+  \item photometric redshifts can be inferred by locating objects in the latent subspace
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{High-contrast imaging}
+  \begin{itemize}
+  \item in (for example) \textsl{GPI}, null the light of the primary star
+  \item extremely featured residuals, mimicking planets
+  \item planets are rare; anything you have ``seen before'' isn't a planet
+  \item what's been ``seen before'' lies on a nonlinear subspace of data space
+  \item (spectral information is valuable)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bringing it all together}
+  \begin{itemize}
+  \item \textsl{JWST} and future \textsl{HabEx}-like missions will use all of these self-calibration methods
+  \item traditional self-calibration for the PSF and flat-field
+  \item sub-pixel flat-field will be needed for time domain
+  \item data-driven models for stars and galaxies
+  \item speckle modeling with subspace determination
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Observing strategies}
+  \begin{itemize}
+  \item We are going to have very strong opinions about how the data are taken!
+  \item dithering and redundancy
+  \item exposure times and numbers of frames
+  \item heterogeneity
+  \item (calibration will be bandwidth-limited)
+  \end{itemize}
+\end{frame}
+
+\conclusionslide
+
+\end{document}
